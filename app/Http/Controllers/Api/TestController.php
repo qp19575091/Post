@@ -3,26 +3,30 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CommentResource;
 use App\Models\Comment;
-use Illuminate\Http\Request;
+use App\Models\Post;
 
 class TestController extends Controller
 {
-    /**
-     * 印出所有用戶的所有評論 response all comments of all users
-     *
-     * @response 200{
-     *     "id": 1,
-     *     "post_id": 7,
-     *     "user_id": 3,
-     *     "comment": "Repellendus.",
-     *     "created_at": "2021-05-18T14:29:02.000000Z",
-     *     "updated_at": "2021-05-18T14:29:02.000000Z"
-     * }
-     *
-     */
-    public function index()
+    public function sqlTest(Post $post)
     {
-        return Comment::get();
+        //DB::connection()->enableQueryLog();
+
+        //$post = Post::with('comments')->get();
+
+        $post = Post::get();
+        $comments = $post->comments;
+        return $comments;
+
+        //dd(DB::getQueryLog());
+    }
+
+    public function test()
+    {
+        $start = microtime(true);
+        CommentResource::collection(Comment::get());
+        $time = microtime(true) - $start;
+        return $time;
     }
 }

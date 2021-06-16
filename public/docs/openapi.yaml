@@ -6,4 +6,940 @@ info:
 servers:
   -
     url: 'http://localhost'
-paths: []
+paths:
+  /api/user-create:
+    post:
+      summary: 'Handle a registration request for the application.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  token: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDc5OTg4MjFkMTZlZjUxOTRjOWZhYWFkMzFlZDY0NzljMzliZWMzMjg1NjU2YWViNzdkMmM3ZGMwOGNhNGFiOTZiOTVkZmEwNTE3OWE0ZTciLCJpYXQiOjE1OTAzOTEzNDMsIm5iZiI6MTU5MDM5MTM0MywiZXhwIjoxNjIxOTI3MzQzLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.onsWJtrF9UT2XEbSsYQbVLvr-TZKGbqIoj4w5W-sEqbrcGep-mRuHJDY1-tY7E_-KxSV3yTrOAtyWFIv51atVFs5m6abF-QWNUpGYMlfEhjQbN6S5QOLXD7deiatSGH0dIXX6v7j7IdUeLgJ5t_6z7oD2s0bAuzfhrHCM9wf7Plyqv7p4-E6ROJ5Atv6IzFFA8dA6eEZWqF_SwOXJMEqyo3Gas7AzNoUSVear8d2sToLZFUv9lPXubp3_5kNN65Ri7bVQXJh0GqCBNN2ySWlO1ODaiIoNPSMOYpBLUaERRTh2AVzDLMvEcKQ5HQFLSqA1wFzABlOweF-7O1mvzdYLSmx8yCvlrIZxnBE2-c69IGmSJKowoczc2lNp96hNept6K-h94xQomC_bd8RajojBP928x-NLPhCH2bg98He0np_xBkm6M91z6M1ZnReZ7s45ViPOTovR6nW0QuqmH6LdF6JEeLc026DKLDX7Ap7fGjq-jFH-tbB_jp0wGGoJfTBLQllftTz9f86oqTXCf85_4fnMgTxB2qX_LBfJw4s6oa1Oex-EpBEprM4C0Awtlo9IkNNRBKLhxa7wPwMHFR_y9w7ZgEbq2pd-qDb4WMcDFfR5mTpCcYYrhufHSa0gnDDDAOanVSaFf58V5T_kKnb72_md7JFf87rhOoSjML_1Ks
+                  user: { id: 2, name: Demo, email: demo@demo.com, email_verified_at: null, created_at: '2020-05-25T06:21:47.000000Z', updated_at: '2020-05-25T06:21:47.000000Z' }
+                properties:
+                  token: { type: string, example: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDc5OTg4MjFkMTZlZjUxOTRjOWZhYWFkMzFlZDY0NzljMzliZWMzMjg1NjU2YWViNzdkMmM3ZGMwOGNhNGFiOTZiOTVkZmEwNTE3OWE0ZTciLCJpYXQiOjE1OTAzOTEzNDMsIm5iZiI6MTU5MDM5MTM0MywiZXhwIjoxNjIxOTI3MzQzLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.onsWJtrF9UT2XEbSsYQbVLvr-TZKGbqIoj4w5W-sEqbrcGep-mRuHJDY1-tY7E_-KxSV3yTrOAtyWFIv51atVFs5m6abF-QWNUpGYMlfEhjQbN6S5QOLXD7deiatSGH0dIXX6v7j7IdUeLgJ5t_6z7oD2s0bAuzfhrHCM9wf7Plyqv7p4-E6ROJ5Atv6IzFFA8dA6eEZWqF_SwOXJMEqyo3Gas7AzNoUSVear8d2sToLZFUv9lPXubp3_5kNN65Ri7bVQXJh0GqCBNN2ySWlO1ODaiIoNPSMOYpBLUaERRTh2AVzDLMvEcKQ5HQFLSqA1wFzABlOweF-7O1mvzdYLSmx8yCvlrIZxnBE2-c69IGmSJKowoczc2lNp96hNept6K-h94xQomC_bd8RajojBP928x-NLPhCH2bg98He0np_xBkm6M91z6M1ZnReZ7s45ViPOTovR6nW0QuqmH6LdF6JEeLc026DKLDX7Ap7fGjq-jFH-tbB_jp0wGGoJfTBLQllftTz9f86oqTXCf85_4fnMgTxB2qX_LBfJw4s6oa1Oex-EpBEprM4C0Awtlo9IkNNRBKLhxa7wPwMHFR_y9w7ZgEbq2pd-qDb4WMcDFfR5mTpCcYYrhufHSa0gnDDDAOanVSaFf58V5T_kKnb72_md7JFf87rhOoSjML_1Ks }
+                  user: { type: object, example: { id: 2, name: Demo, email: demo@demo.com, email_verified_at: null, created_at: '2020-05-25T06:21:47.000000Z', updated_at: '2020-05-25T06:21:47.000000Z' } }
+        422:
+          description: '422, Validation error'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The given data was invalid.'
+                  errors: { email: ['The email field is required.'] }
+                properties:
+                  message: { type: string, example: 'The given data was invalid.' }
+                  errors: { type: object, example: { email: ['The email field is required.'] } }
+      tags:
+        - 'Auth endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the user.'
+                  example: Demo
+                email:
+                  type: email
+                  description: 'The email of the user.'
+                  example: demo@demo.com
+                password:
+                  type: password
+                  description: 'The password of the user.'
+                  example: password
+                password_confirmation:
+                  type: password
+                  description: 'The password confirmation of the user.'
+                  example: password
+              required:
+                - name
+                - email
+                - password
+                - password_confirmation
+      security: []
+  /api/login:
+    post:
+      summary: 'Handle a login request to the application.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        422:
+          description: '422, Validation error'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The given data was invalid.'
+                  errors: { email: ['The email field is required.'] }
+                properties:
+                  message: { type: string, example: 'The given data was invalid.' }
+                  errors: { type: object, example: { email: ['The email field is required.'] } }
+      tags:
+        - 'Auth endpoints'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: email
+                  description: 'The email of the user.'
+                  example: demo@demo.com
+                password:
+                  type: password
+                  description: 'The password of the user.'
+                  example: password
+              required:
+                - email
+                - password
+      security: []
+  /api/logout:
+    post:
+      summary: 'Log the user out of the application.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        204:
+          description: '204, Success'
+        400:
+          description: '400, Unauthenticated'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message: { type: string, example: Unauthenticated. }
+      tags:
+        - 'Auth endpoints'
+  /api/users:
+    get:
+      summary: 'Shows authenticated user information'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 2
+                  name: Demo
+                  email: demo@demo.com
+                  email_verified_at: null
+                  created_at: '2020-05-25T06:21:47.000000Z'
+                  updated_at: '2020-05-25T06:21:47.000000Z'
+                properties:
+                  id: { type: integer, example: 2 }
+                  name: { type: string, example: Demo }
+                  email: { type: string, example: demo@demo.com }
+                  email_verified_at: { type: string, example: null }
+                  created_at: { type: string, example: '2020-05-25T06:21:47.000000Z' }
+                  updated_at: { type: string, example: '2020-05-25T06:21:47.000000Z' }
+        400:
+          description: '400, Unauthenticated'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message: { type: string, example: Unauthenticated. }
+      tags:
+        - 'Auth endpoints'
+  /api/user:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message: { type: string, example: Unauthenticated. }
+      tags:
+        - Endpoints
+      security: []
+  '/api/users.posts/{user}':
+    get:
+      summary: '印出該用戶的所有文章 response all posts of specified user'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"id\": 1,\n    \"name\": \"Rocio Hermiston\",\n    \"created_at\": \"2021-05-18T14:29:02.000000Z\",\n    \"updated_at\": \"2021-05-18T14:29:02.000000Z\",\n    \"posts\": [\n        {\n            \"id\": 3,\n            \"user_id\": 1,\n            \"content\": \"Consectetur.\",\n            \"created_at\": \"2021-05-18T14:29:02.000000Z\",\n            \"updated_at\": \"2021-05-18T14:29:02.000000Z\"\n        },\n        {\n            \"id\": 6,\n            \"user_id\": 1,\n            \"content\": \"Voluptate ullam.\",\n            \"created_at\": \"2021-05-18T14:29:02.000000Z\",\n            \"updated_at\": \"2021-05-18T14:29:02.000000Z\"\n        },\n}"
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: user
+        description: ''
+        example: 10
+        required: true
+        schema:
+          type: integer
+  '/api/users.comments/{user}':
+    get:
+      summary: '印出該用戶的所有評論 response all comments of specified user'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"id\": 1,\n    \"name\": \"Rocio Hermiston\",\n    \"created_at\": \"2021-05-18T14:29:02.000000Z\",\n    \"updated_at\": \"2021-05-18T14:29:02.000000Z\",\n    \"comments\": [\n        {\n            \"id\": 27,\n            \"post_id\": 3,\n            \"user_id\": 1,\n            \"comment\": \"Illo optio non.\",\n            \"created_at\": \"2021-05-18T14:29:03.000000Z\",\n            \"updated_at\": \"2021-05-18T14:29:03.000000Z\"\n        },\n       {\n            \"id\": 29,\n            \"post_id\": 5,\n            \"user_id\": 1,\n            \"comment\": \"Suscipit sunt animi.\",\n            \"created_at\": \"2021-05-18T14:29:03.000000Z\",\n            \"updated_at\": \"2021-05-18T14:29:03.000000Z\"\n        },\n}"
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: user
+        description: ''
+        example: 13
+        required: true
+        schema:
+          type: integer
+  '/api/posts/{post}/likes':
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message: { type: string, example: Unauthenticated. }
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    delete:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: post
+        description: ''
+        example: 9
+        required: true
+        schema:
+          type: integer
+  '/api/comments/{comment}/likes':
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message: { type: string, example: Unauthenticated. }
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    delete:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: comment
+        description: ''
+        example: 2
+        required: true
+        schema:
+          type: integer
+  '/api/posts.comments/{id}':
+    get:
+      summary: '印出該貼文的所有評論 response all comments of specified post'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"id\": 1,\n    \"user_id\": 8,\n    \"content\": \"Aut accusantium.\",\n    \"created_at\": \"2021-05-18T14:29:02.000000Z\",\n    \"updated_at\": \"2021-05-18T14:29:02.000000Z\",\n    \"comments\": [\n        {\n            \"id\": 5,\n            \"post_id\": 1,\n            \"user_id\": 5,\n            \"comment\": \"Nostrum architecto.\",\n            \"created_at\": \"2021-05-18T14:29:02.000000Z\",\n            \"updated_at\": \"2021-05-18T14:29:02.000000Z\"\n        },\n        {\n            \"id\": 17,\n            \"post_id\": 1,\n            \"user_id\": 10,\n            \"comment\": \"Incidunt labore cum.\",\n            \"created_at\": \"2021-05-18T14:29:03.000000Z\",\n            \"updated_at\": \"2021-05-18T14:29:03.000000Z\"\n        },\n}"
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the posts.comment.'
+        example: et
+        required: true
+        schema:
+          type: string
+  /api/test:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: number
+                example: 0.16762590408325
+      tags:
+        - Endpoints
+      security: []
+  /api/comments:
+    get:
+      summary: '印出所有用戶的所有評論 response all comments of all users'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  post_id: 7
+                  user_id: 3
+                  comment: Repellendus.
+                  created_at: '2021-05-18T14:29:02.000000Z'
+                  updated_at: '2021-05-18T14:29:02.000000Z'
+                properties:
+                  id: { type: integer, example: 1 }
+                  post_id: { type: integer, example: 7 }
+                  user_id: { type: integer, example: 3 }
+                  comment: { type: string, example: Repellendus. }
+                  created_at: { type: string, example: '2021-05-18T14:29:02.000000Z' }
+                  updated_at: { type: string, example: '2021-05-18T14:29:02.000000Z' }
+      tags:
+        - '評論 Comment endpoint'
+      security: []
+    post:
+      summary: '儲存用戶新增的評論 save comments add by users'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '評論 Comment endpoint'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                comment:
+                  type: string
+                  description: 'require the content of the user. emxample: This is a comment'
+                  example: vitae
+      security: []
+  '/api/comments/{id}':
+    put:
+      summary: '修改指定的評論 edit specified comment'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '評論 Comment endpoint'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                comment:
+                  type: string
+                  description: 'require the comment of the post. Emxample: This is a comment'
+                  example: aut
+      security: []
+    delete:
+      summary: '刪除指定的評論 delete specified comment'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '評論 Comment endpoint'
+      security: []
+    get:
+      summary: '印出指定的評論 response specified comment'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  post_id: 7
+                  user_id: 3
+                  comment: Repellendus.
+                  created_at: '2021-05-18T14:29:02.000000Z'
+                  updated_at: '2021-05-18T14:29:02.000000Z'
+                properties:
+                  id: { type: integer, example: 1 }
+                  post_id: { type: integer, example: 7 }
+                  user_id: { type: integer, example: 3 }
+                  comment: { type: string, example: Repellendus. }
+                  created_at: { type: string, example: '2021-05-18T14:29:02.000000Z' }
+                  updated_at: { type: string, example: '2021-05-18T14:29:02.000000Z' }
+      tags:
+        - '評論 Comment endpoint'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the comment.'
+        example: 19
+        required: true
+        schema:
+          type: integer
+  /api/posts:
+    get:
+      summary: '印出所有用戶的所有貼文 response all posts of all users'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  user_id: 8
+                  content: 'Aut accusantium.'
+                  created_at: '2021-05-18T14:29:02.000000Z'
+                  updated_at: '2021-05-18T14:29:02.000000Z'
+                properties:
+                  id: { type: integer, example: 1 }
+                  user_id: { type: integer, example: 8 }
+                  content: { type: string, example: 'Aut accusantium.' }
+                  created_at: { type: string, example: '2021-05-18T14:29:02.000000Z' }
+                  updated_at: { type: string, example: '2021-05-18T14:29:02.000000Z' }
+      tags:
+        - '貼文 Post endpoint'
+      security: []
+    post:
+      summary: '儲存用戶新增的貼文 save posts add by users'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '貼文 Post endpoint'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                  description: 'require the user_id of the user. emxample: 1'
+                  example: 17
+                content:
+                  type: string
+                  description: 'require the content of the user. emxample: This is a content of post'
+                  example: excepturi
+      security: []
+  '/api/posts/{id}':
+    put:
+      summary: '修改指定的貼文 edit specified post'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '貼文 Post endpoint'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                  description: 'require the user_id of the user. emxample: 1'
+                  example: 18
+                content:
+                  type: string
+                  description: 'require the content of the user. emxample: This is a content of post'
+                  example: vel
+      security: []
+    delete:
+      summary: '刪除指定的貼文 delete specified post'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - '貼文 Post endpoint'
+      security: []
+    get:
+      summary: '印出指定的貼文 response specified post'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  user_id: 8
+                  content: 'Aut accusantium.'
+                  created_at: '2021-05-18T14:29:02.000000Z'
+                  updated_at: '2021-05-18T14:29:02.000000Z'
+                properties:
+                  id: { type: integer, example: 1 }
+                  user_id: { type: integer, example: 8 }
+                  content: { type: string, example: 'Aut accusantium.' }
+                  created_at: { type: string, example: '2021-05-18T14:29:02.000000Z' }
+                  updated_at: { type: string, example: '2021-05-18T14:29:02.000000Z' }
+      tags:
+        - '貼文 Post endpoint'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the post.'
+        example: 1
+        required: true
+        schema:
+          type: integer

@@ -10,11 +10,1076 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "56872f11-8e7d-41ef-b25d-27dcf75bd9a8",
+        "_postman_id": "89f6d764-b9be-4d0f-aa45-32f80ce1b055",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
-    "item": [],
+    "item": [
+        {
+            "name": "Auth endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Handle a registration request for the application.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user-create",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/user-create"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"Demo\",\"email\":\"demo@demo.com\",\"password\":\"password\",\"password_confirmation\":\"password\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n   \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDc5OTg4MjFkMTZlZjUxOTRjOWZhYWFkMzFlZDY0NzljMzliZWMzMjg1NjU2YWViNzdkMmM3ZGMwOGNhNGFiOTZiOTVkZmEwNTE3OWE0ZTciLCJpYXQiOjE1OTAzOTEzNDMsIm5iZiI6MTU5MDM5MTM0MywiZXhwIjoxNjIxOTI3MzQzLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.onsWJtrF9UT2XEbSsYQbVLvr-TZKGbqIoj4w5W-sEqbrcGep-mRuHJDY1-tY7E_-KxSV3yTrOAtyWFIv51atVFs5m6abF-QWNUpGYMlfEhjQbN6S5QOLXD7deiatSGH0dIXX6v7j7IdUeLgJ5t_6z7oD2s0bAuzfhrHCM9wf7Plyqv7p4-E6ROJ5Atv6IzFFA8dA6eEZWqF_SwOXJMEqyo3Gas7AzNoUSVear8d2sToLZFUv9lPXubp3_5kNN65Ri7bVQXJh0GqCBNN2ySWlO1ODaiIoNPSMOYpBLUaERRTh2AVzDLMvEcKQ5HQFLSqA1wFzABlOweF-7O1mvzdYLSmx8yCvlrIZxnBE2-c69IGmSJKowoczc2lNp96hNept6K-h94xQomC_bd8RajojBP928x-NLPhCH2bg98He0np_xBkm6M91z6M1ZnReZ7s45ViPOTovR6nW0QuqmH6LdF6JEeLc026DKLDX7Ap7fGjq-jFH-tbB_jp0wGGoJfTBLQllftTz9f86oqTXCf85_4fnMgTxB2qX_LBfJw4s6oa1Oex-EpBEprM4C0Awtlo9IkNNRBKLhxa7wPwMHFR_y9w7ZgEbq2pd-qDb4WMcDFfR5mTpCcYYrhufHSa0gnDDDAOanVSaFf58V5T_kKnb72_md7JFf87rhOoSjML_1Ks\",\n   \"user\": {\n       \"id\": 2,\n       \"name\": \"Demo\",\n       \"email\": \"demo@demo.com\",\n       \"email_verified_at\": null,\n       \"created_at\": \"2020-05-25T06:21:47.000000Z\",\n       \"updated_at\": \"2020-05-25T06:21:47.000000Z\"\n   }\n}",
+                            "name": "200"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n   \"message\": \"The given data was invalid.\",\n   \"errors\": {\n       \"email\": [\n           \"The email field is required.\"\n       ]\n   }\n}",
+                            "name": "422, Validation error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Handle a login request to the application.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/login",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"demo@demo.com\",\"password\":\"password\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n   \"message\": \"The given data was invalid.\",\n   \"errors\": {\n       \"email\": [\n           \"The email field is required.\"\n       ]\n   }\n}",
+                            "name": "422, Validation error"
+                        }
+                    ]
+                },
+                {
+                    "name": "Log the user out of the application.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/logout",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": "204, Success"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
+                            "name": "400, Unauthenticated"
+                        }
+                    ]
+                },
+                {
+                    "name": "Shows authenticated user information",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/users"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"id\": 2,\n    \"name\": \"Demo\",\n    \"email\": \"demo@demo.com\",\n    \"email_verified_at\": null,\n    \"created_at\": \"2020-05-25T06:21:47.000000Z\",\n    \"updated_at\": \"2020-05-25T06:21:47.000000Z\"\n}",
+                            "name": "200"
+                        },
+                        {
+                            "header": [],
+                            "code": 400,
+                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
+                            "name": "400, Unauthenticated"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "api\/user",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/user"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": null
+                        }
+                    ]
+                },
+                {
+                    "name": "\u5370\u51fa\u8a72\u7528\u6236\u7684\u6240\u6709\u6587\u7ae0 response all posts of specified user",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users.posts\/:user",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/users.posts\/:user",
+                            "variable": [
+                                {
+                                    "id": "user",
+                                    "key": "user",
+                                    "value": "10",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"id\": 1,\n    \"name\": \"Rocio Hermiston\",\n    \"created_at\": \"2021-05-18T14:29:02.000000Z\",\n    \"updated_at\": \"2021-05-18T14:29:02.000000Z\",\n    \"posts\": [\n        {\n            \"id\": 3,\n            \"user_id\": 1,\n            \"content\": \"Consectetur.\",\n            \"created_at\": \"2021-05-18T14:29:02.000000Z\",\n            \"updated_at\": \"2021-05-18T14:29:02.000000Z\"\n        },\n        {\n            \"id\": 6,\n            \"user_id\": 1,\n            \"content\": \"Voluptate ullam.\",\n            \"created_at\": \"2021-05-18T14:29:02.000000Z\",\n            \"updated_at\": \"2021-05-18T14:29:02.000000Z\"\n        },\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "\u5370\u51fa\u8a72\u7528\u6236\u7684\u6240\u6709\u8a55\u8ad6 response all comments of specified user",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users.comments\/:user",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/users.comments\/:user",
+                            "variable": [
+                                {
+                                    "id": "user",
+                                    "key": "user",
+                                    "value": "13",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"id\": 1,\n    \"name\": \"Rocio Hermiston\",\n    \"created_at\": \"2021-05-18T14:29:02.000000Z\",\n    \"updated_at\": \"2021-05-18T14:29:02.000000Z\",\n    \"comments\": [\n        {\n            \"id\": 27,\n            \"post_id\": 3,\n            \"user_id\": 1,\n            \"comment\": \"Illo optio non.\",\n            \"created_at\": \"2021-05-18T14:29:03.000000Z\",\n            \"updated_at\": \"2021-05-18T14:29:03.000000Z\"\n        },\n       {\n            \"id\": 29,\n            \"post_id\": 5,\n            \"user_id\": 1,\n            \"comment\": \"Suscipit sunt animi.\",\n            \"created_at\": \"2021-05-18T14:29:03.000000Z\",\n            \"updated_at\": \"2021-05-18T14:29:03.000000Z\"\n        },\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/posts\/{post}\/likes",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:post\/likes",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:post\/likes",
+                            "variable": [
+                                {
+                                    "id": "post",
+                                    "key": "post",
+                                    "value": "9",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": null
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/posts\/{post}\/likes",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:post\/likes",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:post\/likes",
+                            "variable": [
+                                {
+                                    "id": "post",
+                                    "key": "post",
+                                    "value": "16",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/posts\/{post}\/likes",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:post\/likes",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:post\/likes",
+                            "variable": [
+                                {
+                                    "id": "post",
+                                    "key": "post",
+                                    "value": "7",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/comments\/{comment}\/likes",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments\/:comment\/likes",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/likes",
+                            "variable": [
+                                {
+                                    "id": "comment",
+                                    "key": "comment",
+                                    "value": "2",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": null
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/comments\/{comment}\/likes",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments\/:comment\/likes",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/likes",
+                            "variable": [
+                                {
+                                    "id": "comment",
+                                    "key": "comment",
+                                    "value": "2",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/comments\/{comment}\/likes",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments\/:comment\/likes",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/likes",
+                            "variable": [
+                                {
+                                    "id": "comment",
+                                    "key": "comment",
+                                    "value": "16",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "\u5370\u51fa\u8a72\u8cbc\u6587\u7684\u6240\u6709\u8a55\u8ad6 response all comments of specified post",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts.comments\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts.comments\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "et",
+                                    "description": "The ID of the posts.comment."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"id\": 1,\n    \"user_id\": 8,\n    \"content\": \"Aut accusantium.\",\n    \"created_at\": \"2021-05-18T14:29:02.000000Z\",\n    \"updated_at\": \"2021-05-18T14:29:02.000000Z\",\n    \"comments\": [\n        {\n            \"id\": 5,\n            \"post_id\": 1,\n            \"user_id\": 5,\n            \"comment\": \"Nostrum architecto.\",\n            \"created_at\": \"2021-05-18T14:29:02.000000Z\",\n            \"updated_at\": \"2021-05-18T14:29:02.000000Z\"\n        },\n        {\n            \"id\": 17,\n            \"post_id\": 1,\n            \"user_id\": 10,\n            \"comment\": \"Incidunt labore cum.\",\n            \"created_at\": \"2021-05-18T14:29:03.000000Z\",\n            \"updated_at\": \"2021-05-18T14:29:03.000000Z\"\n        },\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/test",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/test",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/test"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "content-type",
+                                    "value": "text\/html; charset=UTF-8"
+                                },
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "0.16762590408325",
+                            "name": null
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "\u8a55\u8ad6 Comment endpoint",
+            "description": "",
+            "item": [
+                {
+                    "name": "\u5370\u51fa\u6240\u6709\u7528\u6236\u7684\u6240\u6709\u8a55\u8ad6 response all comments of all users",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comments"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"id\": 1,\n    \"post_id\": 7,\n    \"user_id\": 3,\n    \"comment\": \"Repellendus.\",\n    \"created_at\": \"2021-05-18T14:29:02.000000Z\",\n    \"updated_at\": \"2021-05-18T14:29:02.000000Z\"\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "\u5132\u5b58\u7528\u6236\u65b0\u589e\u7684\u8a55\u8ad6 save comments add by users",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comments"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"comment\":\"vitae\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "\u4fee\u6539\u6307\u5b9a\u7684\u8a55\u8ad6 edit specified comment",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "19",
+                                    "description": "The ID of the comment."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"comment\":\"aut\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "\u522a\u9664\u6307\u5b9a\u7684\u8a55\u8ad6 delete specified comment",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "10",
+                                    "description": "The ID of the comment."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "\u5370\u51fa\u6307\u5b9a\u7684\u8a55\u8ad6 response specified comment",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the comment."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"id\": 1,\n    \"post_id\": 7,\n    \"user_id\": 3,\n    \"comment\": \"Repellendus.\",\n    \"created_at\": \"2021-05-18T14:29:02.000000Z\",\n    \"updated_at\": \"2021-05-18T14:29:02.000000Z\"\n}",
+                            "name": "200"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "\u8cbc\u6587 Post endpoint",
+            "description": "",
+            "item": [
+                {
+                    "name": "\u5370\u51fa\u6240\u6709\u7528\u6236\u7684\u6240\u6709\u8cbc\u6587 response all posts of all users",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"id\": 1,\n    \"user_id\": 8,\n    \"content\": \"Aut accusantium.\",\n    \"created_at\": \"2021-05-18T14:29:02.000000Z\",\n    \"updated_at\": \"2021-05-18T14:29:02.000000Z\"\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "\u5132\u5b58\u7528\u6236\u65b0\u589e\u7684\u8cbc\u6587 save posts add by users",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"user_id\":17,\"content\":\"excepturi\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "\u4fee\u6539\u6307\u5b9a\u7684\u8cbc\u6587 edit specified post",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the post."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"user_id\":18,\"content\":\"vel\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "\u522a\u9664\u6307\u5b9a\u7684\u8cbc\u6587 delete specified post",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "12",
+                                    "description": "The ID of the post."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "\u5370\u51fa\u6307\u5b9a\u7684\u8cbc\u6587 response specified post",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "20",
+                                    "description": "The ID of the post."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"id\": 1,\n    \"user_id\": 8,\n    \"content\": \"Aut accusantium.\",\n    \"created_at\": \"2021-05-18T14:29:02.000000Z\",\n    \"updated_at\": \"2021-05-18T14:29:02.000000Z\"\n}",
+                            "name": "200"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
     "auth": {
         "type": "noauth"
     }

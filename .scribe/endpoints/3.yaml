@@ -1,0 +1,150 @@
+name: '貼文 Post endpoint'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/posts
+    metadata:
+      title: '印出所有用戶的所有貼文 response all posts of all users'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "id": 1,
+              "user_id": 8,
+              "content": "Aut accusantium.",
+              "created_at": "2021-05-18T14:29:02.000000Z",
+              "updated_at": "2021-05-18T14:29:02.000000Z"
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/posts
+    metadata:
+      title: '儲存用戶新增的貼文 save posts add by users'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      user_id:
+        name: user_id
+        description: 'require the user_id of the user. emxample: 1'
+        required: false
+        example: 17
+        type: integer
+      content:
+        name: content
+        description: 'require the content of the user. emxample: This is a content of post'
+        required: false
+        example: excepturi
+        type: string
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/posts/{id}'
+    metadata:
+      title: '修改指定的貼文 edit specified post'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the post.'
+        required: true
+        example: 1
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      user_id:
+        name: user_id
+        description: 'require the user_id of the user. emxample: 1'
+        required: false
+        example: 18
+        type: integer
+      content:
+        name: content
+        description: 'require the content of the user. emxample: This is a content of post'
+        required: false
+        example: vel
+        type: string
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/posts/{id}'
+    metadata:
+      title: '刪除指定的貼文 delete specified post'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the post.'
+        required: true
+        example: 12
+        type: integer
+    queryParameters: []
+    bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/posts/{id}'
+    metadata:
+      title: '印出指定的貼文 response specified post'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the post.'
+        required: true
+        example: 20
+        type: integer
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "id": 1,
+              "user_id": 8,
+              "content": "Aut accusantium.",
+              "created_at": "2021-05-18T14:29:02.000000Z",
+              "updated_at": "2021-05-18T14:29:02.000000Z"
+          }
+        headers: []
+        description: '200'
+    responseFields: []
