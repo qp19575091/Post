@@ -6,37 +6,37 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\CommentResource;
 use App\Models\User;
 
+/**
+ * @group UserComment endpoint
+ */
 class UserCommentController extends Controller
 {
     /**
-     * 印出該用戶的所有評論 response all comments of specified user
+     * response all comments of auth user
      *
-     * @bodyParam id integer require the user_id of the user. emxample: 1
+     * @authenticated
+     * 
+     * @urlParam user integer required The ID of the user. emxample: 1
      *
      * @response 200{
-     *     "id": 1,
-     *     "name": "Rocio Hermiston",
-     *     "created_at": "2021-05-18T14:29:02.000000Z",
-     *     "updated_at": "2021-05-18T14:29:02.000000Z",
-     *     "comments": [
-     *         {
-     *             "id": 27,
-     *             "post_id": 3,
-     *             "user_id": 1,
-     *             "comment": "Illo optio non.",
-     *             "created_at": "2021-05-18T14:29:03.000000Z",
-     *             "updated_at": "2021-05-18T14:29:03.000000Z"
-     *         },
-     *        {
-     *             "id": 29,
-     *             "post_id": 5,
-     *             "user_id": 1,
-     *             "comment": "Suscipit sunt animi.",
-     *             "created_at": "2021-05-18T14:29:03.000000Z",
-     *             "updated_at": "2021-05-18T14:29:03.000000Z"
-     *         },
+     *     {
+     *         "id": 27,
+     *         "post_id": 3,
+     *         "user_id": 1,
+     *         "comment": "Illo optio non.",
+     *     },
+     *     {
+     *         "id": 29,
+     *         "post_id": 5,
+     *         "user_id": 1,
+     *         "comment": "Suscipit sunt animi.",
+     *     },
      * }
-     *
+     * 
+     * @response status=401 scenario="Unauthenticated" {
+     *     "message": "Unauthenticated."
+     * }
+     * 
      */
     public function comment(User $user)
     {

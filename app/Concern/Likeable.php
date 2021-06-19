@@ -21,24 +21,29 @@ trait Likeable
     public function like()
     {
         if ($this->isLike()) {
-            return $this;
+            $this->likes()->where('user_id', auth()->user()->id)->delete();
+            return response()->json(['message' => 'Success. Has been cancel like'], 200);
         }
-        return $this->likes()->create(['user_id' => auth()->user()->id]);
+        $this->likes()->create(['user_id' => auth()->user()->id]);
+        return response()->json(['message' => 'Success. Has been like'], 200);
     }
 
-    public function dislike()
-    {
-        if ($this->isLike()) {
-            return $this->likes()->where('user_id', auth()->user()->id)->delete();
-        }
-        return $this;
-    }
+    // public function dislike()
+    // {
+    //     if ($this->isLike()) {
+    //         $this->likes()->where('user_id', auth()->user()->id)->delete();
+    //         return response()->json(['message' => 'Success.']);
+    //     }
+    //     return $this;
+    // }
 
     public function sumLike(Model $model, $id)
     {
-        return Like::where([
+        $count = Like::where([
             'likeable_type' => get_class($model),
             'likeable_id' => $id
         ])->count();
+
+        return response()->json(['number of the post like' => $count, 'message' => 'Success']);
     }
 }

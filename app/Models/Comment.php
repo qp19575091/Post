@@ -10,7 +10,7 @@ class Comment extends Model
 {
     use HasFactory, Likeable;
 
-    protected $fillable = ['comment', 'post_id', 'user_id'];
+    protected $fillable = ['content', 'post_id', 'user_id'];
 
     public function posts()
     {

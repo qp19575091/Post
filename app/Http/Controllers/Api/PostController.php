@@ -8,20 +8,32 @@ use App\Http\Resources\PostResource;
 use App\Models\Post;
 
 /**
- * @group 貼文 Post endpoint
+ * @group Post endpoint
  */
 class PostController extends Controller
 {
     /**
-     * 印出所有用戶的所有貼文 response all posts of all users
-     *
+     * response all posts
+     * 
+     * @authenticated
+     * 
      * @response 200{
-     *     "id": 1,
-     *     "user_id": 8,
-     *     "content": "Aut accusantium.",
-     *     "created_at": "2021-05-18T14:29:02.000000Z",
-     *     "updated_at": "2021-05-18T14:29:02.000000Z"
+     *     {
+     *          "id": 1,
+     *          "content": "This is a post1.",
+     *          "user_id": 1,
+     *     }, 
+     *     {
+     *          "id": 2,
+     *          "content": "This is a post2.",
+     *          "user_id": 2,
+     *      },
      * }
+     *
+     * @response status=401 scenario="Unauthenticated" {
+     *     "message": "Unauthenticated."
+     * }
+     * 
      */
     public function index()
     {
@@ -29,60 +41,112 @@ class PostController extends Controller
     }
 
     /**
-     * 儲存用戶新增的貼文 save posts add by users
+     * create posts by users
      *
-     * @bodyParam user_id integer require the user_id of the user. emxample: 1
-     * @bodyParam content string require the content of the user. emxample: This is a content of post
-     *
+     * @authenticated
+     * 
+     * 
+     * @bodyParam post string required the content of the user. emxample: This is a post
+     * 
+     * @response 200 {
+     *     "id": 1010,
+     *     "content": "This is a post",
+     *     "user_id": 1,
+     * }
+     * 
+     * @response status=401 scenario="Unauthenticated" {
+     *     "message": "Unauthenticated."
+     * }
      */
     public function store(Request $request)
     {
         $post = Post::create([
-            'user_id' => 1,
+            'user_id' => auth()->user()->id,
             'content' => $request->content,
         ]);
-        return $post;
+        return response()->json(new PostResource($post), 200);
     }
 
     /**
-     * 印出指定的貼文 response specified post
+     * response specified post
      *
+     * @authenticated
+     * 
      * @response 200{
      *     "id": 1,
-     *     "user_id": 8,
-     *     "content": "Aut accusantium.",
-     *     "created_at": "2021-05-18T14:29:02.000000Z",
-     *     "updated_at": "2021-05-18T14:29:02.000000Z"
+     *     "user_id": 1,
+     *     "content": "This is a post.",
      * }
+     *
+     * @response status=401 scenario="Unauthenticated" {
+     *     "message": "Unauthenticated."
+     * 
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        return PostResource::collection(Post::findorfail($id));
+        return new PostResource($post);
     }
 
-    /**
-     * 修改指定的貼文 edit specified post
+     /**
+     * update auth's post by himself
      *
-     * @bodyParam user_id integer require the user_id of the user. emxample: 1
-     * @bodyParam content string require the content of the user. emxample: This is a content of post
+     * @authenticated
+     * 
+     * @bodyParam content string require the content of the post. Emxample: Update a post.
+     * 
+     * @response 200{
+     *     "id": 1,
+     *     "user_id": 1,
+     *     "content": "Update a post.",
+     * }
+     *
+     * @response status=401 scenario="Unauthenticated" {
+     *     "message": "Unauthenticated."
+     * {
+     * 
+     * @response status=403 scenario="Unauthenticated" {
+     *     "message": "No Permission."
+     * }
      *
      */
     public function update(Request $request, Post $post)
     {
-        $post = $post->update([
-            'content' => $request->content,
-        ]);
-        return $post;
+        $post = Post::where('id', $post->id)->where('user_id', auth()->user()->id)->first();
+
+        if($post){
+            $post->update(['content' => $request->content]);
+            return new PostResource($post);
+        }
+
+        return response()->json(['message' => 'No Permission'], 403);
     }
 
-    /**
-     * 刪除指定的貼文 delete specified post
+   /**
+     * delete auth's post by himself
      *
-     * @param  Post $post
-     * @return \Illuminate\Http\Response
+     * @authenticated
+     * 
+     * @response 204{
+     *     
+     * }
+     * 
+     * @response status=401 scenario="Unauthenticated" {
+     *     "message": "Unauthenticated."
+     * }
+     * 
+     * @response status=403 scenario="Unauthenticated" {
+     *     "message": "No Permission."
+     * }
+     * 
      */
     public function destroy(Post $post)
     {
-        return $post->delete();
+        $post = Post::where('id', $post->id)->where('user_id', auth()->user()->id)->first();
+
+        if ($post) {
+            $post->delete();
+            return response()->noContent();
+        }
+        return response()->json(['message' => 'No Permission'], 403);
     }
 }

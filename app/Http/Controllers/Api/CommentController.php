@@ -7,85 +7,130 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\CommentResource;
 use App\Models\Comment;
 use App\Models\Post;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 /**
- * @group 評論 Comment endpoint
+ * @group Comment endpoint
  */
 class CommentController extends Controller
 {
 
     /**
-     * 印出所有用戶的所有評論 response all comments of all users
-     *
+     * response all comments
+     * 
+     * @authenticated
+     * 
      * @response 200{
-     *     "id": 1,
-     *     "post_id": 7,
-     *     "user_id": 3,
-     *     "comment": "Repellendus.",
-     *     "created_at": "2021-05-18T14:29:02.000000Z",
-     *     "updated_at": "2021-05-18T14:29:02.000000Z"
+     *     {
+     *          "id": 1,
+     *          "content": "This is a comment1.",
+     *          "user_id": 1,
+     *          "post_id": 7
+     *     }, 
+     *     {
+     *          "id": 2,
+     *          "content": "This is a comment2.",
+     *          "user_id": 1,
+     *          "post_id": 22
+     *      },
      * }
      *
+     * @response status=401 scenario="Unauthenticated" {
+     *     "message": "Unauthenticated."
+     * }
+     * 
      */
     public function index()
     {
         return CommentResource::collection(Comment::get());
     }
 
-    /**
-     * 儲存用戶新增的評論 save comments add by users
-     *
-     * @bodyParam comment string require the content of the user. emxample: This is a comment
-     *
-     */
-    public function store(Request $request, Post $post)
-    {
-        $comment = Comment::create([
-            'content' => $request->content,
-            'user_id' => auth()->user()->id,
-            'post_id' => $post->id,
-        ]);
-        return $comment;
-    }
+
 
     /**
-     * 印出指定的評論 response specified comment
+     * response specified comment
      *
+     * @authenticated
+     * 
      * @response 200{
      *     "id": 1,
      *     "post_id": 7,
-     *     "user_id": 3,
-     *     "comment": "Repellendus.",
-     *     "created_at": "2021-05-18T14:29:02.000000Z",
-     *     "updated_at": "2021-05-18T14:29:02.000000Z"
+     *     "user_id": 1,
+     *     "content": "This is a comment.",
      * }
      *
+     * @response status=401 scenario="Unauthenticated" {
+     *     "message": "Unauthenticated."
+     * 
      */
-    public function show($id)
+    public function show(Comment $comment)
     {
-        return CommentResource::collection(Comment::findorfail($id));
+        return new CommentResource($comment);
     }
 
     /**
-     * 修改指定的評論 edit specified comment
+     * update auth's comment by himself
      *
-     * @bodyParam comment string require the comment of the post. Emxample: This is a comment
+     * @authenticated
+     * 
+     * @bodyParam content string require the content of the post. Emxample: Update a comment.
+     * 
+     * @response 200{
+     *     "id": 1,
+     *     "post_id": 7,
+     *     "user_id": 1,
+     *     "content": "Update a comment.",
+     * }
+     *
+     * @response status=401 scenario="Unauthenticated" {
+     *     "message": "Unauthenticated."
+     * {
+     * 
+     * @response status=403 scenario="Unauthenticated" {
+     *     "message": "No Permission."
+     * }
      *
      */
     public function update(Request $request, Comment $comment)
     {
-        $comment = $comment->update([
-            'content' => $request->content,
-        ]);
-        return $comment;
+        $comment = Comment::where('id', $comment->id)->where('user_id', auth()->user()->id)->first();
+
+        if($comment){
+            $comment->update(['content' => $request->content]);
+            return new CommentResource($comment);
+        }
+
+        return response()->json(['message' => 'No Permission'], 403);
+        
     }
 
     /**
-     * 刪除指定的評論 delete specified comment
+     * delete auth's comment by himself
      *
+     * @authenticated
+     * 
+     * @response 204{
+     *     
+     * }
+     * 
+     * @response status=401 scenario="Unauthenticated" {
+     *     "message": "Unauthenticated."
+     * }
+     * 
+     * @response status=403 scenario="Unauthenticated" {
+     *     "message": "No Permission."
+     * }
+     * 
      */
     public function destroy(Comment $comment)
     {
-        return $comment->delete();
+        $comment = Comment::where('id', $comment->id)->where('user_id', auth()->user()->id)->first();
+
+        if ($comment) {
+            $comment->delete();
+            return response()->noContent();
+        }
+        return response()->json(['message' => 'No Permission'], 403);
     }
 }

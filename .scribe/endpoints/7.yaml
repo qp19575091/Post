@@ -1,0 +1,52 @@
+name: 'UserComment endpoint'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: 'api/users.comments/{user}'
+    metadata:
+      title: 'response all comments of auth user'
+      description: ''
+      authenticated: true
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user:
+        name: user
+        description: 'The ID of the user. emxample: 1'
+        required: true
+        example: 16
+        type: integer
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              {
+                  "id": 27,
+                  "post_id": 3,
+                  "user_id": 1,
+                  "comment": "Illo optio non.",
+              },
+              {
+                  "id": 29,
+                  "post_id": 5,
+                  "user_id": 1,
+                  "comment": "Suscipit sunt animi.",
+              },
+          }
+        headers: []
+        description: '200'
+      -
+        status: 401
+        content: |-
+          {
+              "message": "Unauthenticated."
+          }
+        headers: []
+        description: '401, Unauthenticated'
+    responseFields: []

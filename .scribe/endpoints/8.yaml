@@ -1,0 +1,50 @@
+name: 'UserPost endpoint'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: 'api/users.posts/{user}'
+    metadata:
+      title: 'response all posts of specified user'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user:
+        name: user
+        description: 'The ID of the user. emxample: 1'
+        required: true
+        example: 18
+        type: integer
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              {
+                  "id": 1,
+                  "user_id": 1,
+                  "content": "Consectetur.",
+              },
+              {
+                  "id": 2,
+                  "user_id": 1,
+                  "content": "Voluptate ullam.",
+              },
+          }
+        headers: []
+        description: '200'
+      -
+        status: 401
+        content: |-
+          {
+              "message": "Unauthenticated."
+          }
+        headers: []
+        description: '401, Unauthenticated'
+    responseFields: []
