@@ -188,7 +188,5 @@ class UserController extends Controller
     public function index()
     {
         return response()->json(auth()->user(), 200);
-
-        return response()->json(['message' => 'Unauthenticated.'], 401);
     }
 }

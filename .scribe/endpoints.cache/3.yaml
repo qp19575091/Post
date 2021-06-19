@@ -20,7 +20,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '0.022063970565796'
+        content: '0.14840292930603'
         headers:
           content-type:
             - 'text/html; charset=UTF-8'

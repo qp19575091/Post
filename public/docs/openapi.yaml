@@ -7,793 +7,6 @@ servers:
   -
     url: 'http://localhost'
 paths:
-  '/api/comments/{comment}/likes':
-    get:
-      summary: 'show comment total like'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: '200'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  'number of the comment like': 100
-                  message: Success
-                properties:
-                  'number of the comment like': { type: integer, example: 100 }
-                  message: { type: string, example: Success }
-      tags:
-        - 'CommentLike endpoint'
-      security: []
-    post:
-      summary: 'create or destroy comment like'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: '200'
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n    'message':'Success. Has been cancel like'\n}"
-        401:
-          description: '401, Unauthenticated'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message: { type: string, example: Unauthenticated. }
-      tags:
-        - 'CommentLike endpoint'
-    parameters:
-      -
-        in: path
-        name: comment
-        description: 'The ID of the comment. emxample: 1'
-        example: 16
-        required: true
-        schema:
-          type: integer
-  /api/comments:
-    get:
-      summary: 'response all comments'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: '200'
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n    {\n         \"id\": 1,\n         \"content\": \"This is a comment1.\",\n         \"user_id\": 1,\n         \"post_id\": 7\n    },\n    {\n         \"id\": 2,\n         \"content\": \"This is a comment2.\",\n         \"user_id\": 1,\n         \"post_id\": 22\n     },\n}"
-        401:
-          description: '401, Unauthenticated'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message: { type: string, example: Unauthenticated. }
-      tags:
-        - 'Comment endpoint'
-  '/api/comments/{id}':
-    put:
-      summary: 'update auth''s comment by himself'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: '200'
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n    \"id\": 1,\n    \"post_id\": 7,\n    \"user_id\": 1,\n    \"content\": \"Update a comment.\",\n}"
-        401:
-          description: '401, Unauthenticated'
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n    \"message\": \"Unauthenticated.\"\n{"
-        403:
-          description: '403, Unauthenticated'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'No Permission.'
-                properties:
-                  message: { type: string, example: 'No Permission.' }
-      tags:
-        - 'Comment endpoint'
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                content:
-                  type: string
-                  description: 'require the content of the post. Emxample: Update a comment.'
-                  example: perspiciatis
-    delete:
-      summary: 'delete auth''s comment by himself'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        204:
-          description: '204'
-        401:
-          description: '401, Unauthenticated'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message: { type: string, example: Unauthenticated. }
-        403:
-          description: '403, Unauthenticated'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'No Permission.'
-                properties:
-                  message: { type: string, example: 'No Permission.' }
-      tags:
-        - 'Comment endpoint'
-    get:
-      summary: 'response specified comment'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: '200'
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n    \"id\": 1,\n    \"post_id\": 7,\n    \"user_id\": 1,\n    \"content\": \"This is a comment.\",\n}"
-        401:
-          description: '401, Unauthenticated'
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n    \"message\": \"Unauthenticated.\""
-      tags:
-        - 'Comment endpoint'
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the comment.'
-        example: 20
-        required: true
-        schema:
-          type: integer
-  '/api/posts/{post}/comments':
-    post:
-      summary: 'create comments by users'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: '200'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  id: 1010
-                  content: 'This is a comment'
-                  user_id: 1
-                  post_id: 1
-                properties:
-                  id: { type: integer, example: 1010 }
-                  content: { type: string, example: 'This is a comment' }
-                  user_id: { type: integer, example: 1 }
-                  post_id: { type: integer, example: 1 }
-        401:
-          description: '401, Unauthenticated'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message: { type: string, example: Unauthenticated. }
-      tags:
-        - 'PostComment endpoint'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                comment:
-                  type: string
-                  description: 'the content of the user. emxample: This is a comment'
-                  example: vitae
-              required:
-                - comment
-    parameters:
-      -
-        in: path
-        name: post
-        description: 'The ID of the post. emxample: 1'
-        example: 12
-        required: true
-        schema:
-          type: integer
-  '/api/posts.comments/{post}':
-    get:
-      summary: 'response all comments of specified post'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: '200'
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n    {\n        \"id\": 10,\n        \"content\": \"Aliquam vel modi.\",\n        \"user_id\": 3,\n        \"post_id\": 4\n    },\n    {\n        \"id\": 69,\n        \"content\": \"Et perspiciatis.\",\n        \"user_id\": 1,\n        \"post_id\": 4\n    }\n}"
-      tags:
-        - 'PostComment endpoint'
-      security: []
-    parameters:
-      -
-        in: path
-        name: post
-        description: 'The ID of the post. emxample: 1'
-        example: 2
-        required: true
-        schema:
-          type: integer
-  '/api/posts/{post}/likes':
-    get:
-      summary: 'show post total like'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: '200'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  'number of the post like': 100
-                  message: Success
-                properties:
-                  'number of the post like': { type: integer, example: 100 }
-                  message: { type: string, example: Success }
-      tags:
-        - 'PostLike endpoint'
-      security: []
-    post:
-      summary: 'create or destroy post like'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: '200'
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n    'message':'Success. Has been cancel like'\n}"
-        401:
-          description: '401, Unauthenticated'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message: { type: string, example: Unauthenticated. }
-      tags:
-        - 'PostLike endpoint'
-    parameters:
-      -
-        in: path
-        name: post
-        description: 'The ID of the post. emxample: 1'
-        example: 11
-        required: true
-        schema:
-          type: integer
-  /api/posts:
-    get:
-      summary: 'response all posts'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: '200'
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n    {\n         \"id\": 1,\n         \"content\": \"This is a post1.\",\n         \"user_id\": 1,\n    },\n    {\n         \"id\": 2,\n         \"content\": \"This is a post2.\",\n         \"user_id\": 2,\n     },\n}"
-        401:
-          description: '401, Unauthenticated'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message: { type: string, example: Unauthenticated. }
-      tags:
-        - 'Post endpoint'
-    post:
-      summary: 'create posts by users'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: '200'
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n    \"id\": 1010,\n    \"content\": \"This is a post\",\n    \"user_id\": 1,\n}"
-        401:
-          description: '401, Unauthenticated'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message: { type: string, example: Unauthenticated. }
-      tags:
-        - 'Post endpoint'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                post:
-                  type: string
-                  description: 'the content of the user. emxample: This is a post'
-                  example: ipsam
-              required:
-                - post
-  '/api/posts/{id}':
-    put:
-      summary: 'update auth''s post by himself'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: '200'
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n    \"id\": 1,\n    \"user_id\": 1,\n    \"content\": \"Update a post.\",\n}"
-        401:
-          description: '401, Unauthenticated'
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n    \"message\": \"Unauthenticated.\"\n{"
-        403:
-          description: '403, Unauthenticated'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'No Permission.'
-                properties:
-                  message: { type: string, example: 'No Permission.' }
-      tags:
-        - 'Post endpoint'
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                content:
-                  type: string
-                  description: 'require the content of the post. Emxample: Update a post.'
-                  example: perspiciatis
-    delete:
-      summary: 'delete auth''s post by himself'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        204:
-          description: '204'
-        401:
-          description: '401, Unauthenticated'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message: { type: string, example: Unauthenticated. }
-        403:
-          description: '403, Unauthenticated'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'No Permission.'
-                properties:
-                  message: { type: string, example: 'No Permission.' }
-      tags:
-        - 'Post endpoint'
-    get:
-      summary: 'response specified post'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: '200'
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n    \"id\": 1,\n    \"user_id\": 1,\n    \"content\": \"This is a post.\",\n}"
-        401:
-          description: '401, Unauthenticated'
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n    \"message\": \"Unauthenticated.\""
-      tags:
-        - 'Post endpoint'
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the post.'
-        example: 15
-        required: true
-        schema:
-          type: integer
-  '/api/users.comments/{user}':
-    get:
-      summary: 'response all comments of auth user'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: '200'
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n    {\n        \"id\": 27,\n        \"post_id\": 3,\n        \"user_id\": 1,\n        \"comment\": \"Illo optio non.\",\n    },\n    {\n        \"id\": 29,\n        \"post_id\": 5,\n        \"user_id\": 1,\n        \"comment\": \"Suscipit sunt animi.\",\n    },\n}"
-        401:
-          description: '401, Unauthenticated'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message: { type: string, example: Unauthenticated. }
-      tags:
-        - 'UserComment endpoint'
-    parameters:
-      -
-        in: path
-        name: user
-        description: 'The ID of the user. emxample: 1'
-        example: 16
-        required: true
-        schema:
-          type: integer
-  '/api/users.posts/{user}':
-    get:
-      summary: 'response all posts of specified user'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: '200'
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "{\n    {\n        \"id\": 1,\n        \"user_id\": 1,\n        \"content\": \"Consectetur.\",\n    },\n    {\n        \"id\": 2,\n        \"user_id\": 1,\n        \"content\": \"Voluptate ullam.\",\n    },\n}"
-        401:
-          description: '401, Unauthenticated'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message: { type: string, example: Unauthenticated. }
-      tags:
-        - 'UserPost endpoint'
-      security: []
-    parameters:
-      -
-        in: path
-        name: user
-        description: 'The ID of the user. emxample: 1'
-        example: 18
-        required: true
-        schema:
-          type: integer
   /api/login:
     post:
       summary: 'Handle a login request to the application.'
@@ -1023,6 +236,271 @@ paths:
                 - password
                 - password_confirmation
       security: []
+  '/api/comments/{comment}/likes':
+    get:
+      summary: 'show comment total like'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  'number of the comment like': 100
+                  message: Success
+                properties:
+                  'number of the comment like': { type: integer, example: 100 }
+                  message: { type: string, example: Success }
+      tags:
+        - 'CommentLike endpoint'
+      security: []
+    post:
+      summary: 'create or destroy comment like'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    'message':'Success. Has been cancel like'\n}"
+        401:
+          description: '401, Unauthenticated'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message: { type: string, example: Unauthenticated. }
+      tags:
+        - 'CommentLike endpoint'
+    parameters:
+      -
+        in: path
+        name: comment
+        description: 'The ID of the comment. emxample: 1'
+        example: 7
+        required: true
+        schema:
+          type: integer
+  /api/comments:
+    get:
+      summary: 'response all comments'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    {\n         \"id\": 1,\n         \"content\": \"This is a comment1.\",\n         \"user_id\": 1,\n         \"post_id\": 7\n    },\n    {\n         \"id\": 2,\n         \"content\": \"This is a comment2.\",\n         \"user_id\": 1,\n         \"post_id\": 22\n     },\n}"
+        401:
+          description: '401, Unauthenticated'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message: { type: string, example: Unauthenticated. }
+      tags:
+        - 'Comment endpoint'
+  '/api/comments/{id}':
+    put:
+      summary: 'update auth''s comment by himself'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"id\": 1,\n    \"post_id\": 7,\n    \"user_id\": 1,\n    \"content\": \"Update a comment.\",\n}"
+        401:
+          description: '401, Unauthenticated'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"message\": \"Unauthenticated.\"\n{"
+        403:
+          description: '403, Unauthenticated'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No Permission.'
+                properties:
+                  message: { type: string, example: 'No Permission.' }
+      tags:
+        - 'Comment endpoint'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                  description: 'require the content of the post. Emxample: Update a comment.'
+                  example: nihil
+    delete:
+      summary: 'delete auth''s comment by himself'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        204:
+          description: '204'
+        401:
+          description: '401, Unauthenticated'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message: { type: string, example: Unauthenticated. }
+        403:
+          description: '403, Unauthenticated'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No Permission.'
+                properties:
+                  message: { type: string, example: 'No Permission.' }
+      tags:
+        - 'Comment endpoint'
+    get:
+      summary: 'response specified comment'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"id\": 1,\n    \"post_id\": 7,\n    \"user_id\": 1,\n    \"content\": \"This is a comment.\",\n}"
+        401:
+          description: '401, Unauthenticated'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"message\": \"Unauthenticated.\""
+      tags:
+        - 'Comment endpoint'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the comment.'
+        example: 8
+        required: true
+        schema:
+          type: integer
   /api/test:
     get:
       summary: ''
@@ -1049,7 +527,529 @@ paths:
             application/json:
               schema:
                 type: number
-                example: 0.022063970565796
+                example: 0.14840292930603
       tags:
         - Endpoints
       security: []
+  '/api/posts/{post}/comments':
+    post:
+      summary: 'create comments by users'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1010
+                  content: 'This is a comment'
+                  user_id: 1
+                  post_id: 1
+                properties:
+                  id: { type: integer, example: 1010 }
+                  content: { type: string, example: 'This is a comment' }
+                  user_id: { type: integer, example: 1 }
+                  post_id: { type: integer, example: 1 }
+        401:
+          description: '401, Unauthenticated'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message: { type: string, example: Unauthenticated. }
+      tags:
+        - 'PostComment endpoint'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                comment:
+                  type: string
+                  description: 'the content of the user. emxample: This is a comment'
+                  example: non
+              required:
+                - comment
+    parameters:
+      -
+        in: path
+        name: post
+        description: 'The ID of the post. emxample: 1'
+        example: 6
+        required: true
+        schema:
+          type: integer
+  '/api/posts.comments/{post}':
+    get:
+      summary: 'response all comments of specified post'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    {\n        \"id\": 10,\n        \"content\": \"Aliquam vel modi.\",\n        \"user_id\": 3,\n        \"post_id\": 4\n    },\n    {\n        \"id\": 69,\n        \"content\": \"Et perspiciatis.\",\n        \"user_id\": 1,\n        \"post_id\": 4\n    }\n}"
+      tags:
+        - 'PostComment endpoint'
+      security: []
+    parameters:
+      -
+        in: path
+        name: post
+        description: 'The ID of the post. emxample: 1'
+        example: 5
+        required: true
+        schema:
+          type: integer
+  '/api/posts/{post}/likes':
+    get:
+      summary: 'show post total like'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  'number of the post like': 100
+                  message: Success
+                properties:
+                  'number of the post like': { type: integer, example: 100 }
+                  message: { type: string, example: Success }
+      tags:
+        - 'PostLike endpoint'
+      security: []
+    post:
+      summary: 'create or destroy post like'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    'message':'Success. Has been cancel like'\n}"
+        401:
+          description: '401, Unauthenticated'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message: { type: string, example: Unauthenticated. }
+      tags:
+        - 'PostLike endpoint'
+    parameters:
+      -
+        in: path
+        name: post
+        description: 'The ID of the post. emxample: 1'
+        example: 3
+        required: true
+        schema:
+          type: integer
+  /api/posts:
+    get:
+      summary: 'response all posts'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    {\n         \"id\": 1,\n         \"content\": \"This is a post1.\",\n         \"user_id\": 1,\n    },\n    {\n         \"id\": 2,\n         \"content\": \"This is a post2.\",\n         \"user_id\": 2,\n     },\n}"
+        401:
+          description: '401, Unauthenticated'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message: { type: string, example: Unauthenticated. }
+      tags:
+        - 'Post endpoint'
+    post:
+      summary: 'create posts by users'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"id\": 1010,\n    \"content\": \"This is a post\",\n    \"user_id\": 1,\n}"
+        401:
+          description: '401, Unauthenticated'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message: { type: string, example: Unauthenticated. }
+      tags:
+        - 'Post endpoint'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                post:
+                  type: string
+                  description: 'the content of the user. emxample: This is a post'
+                  example: saepe
+              required:
+                - post
+  '/api/posts/{id}':
+    put:
+      summary: 'update auth''s post by himself'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"id\": 1,\n    \"user_id\": 1,\n    \"content\": \"Update a post.\",\n}"
+        401:
+          description: '401, Unauthenticated'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"message\": \"Unauthenticated.\"\n{"
+        403:
+          description: '403, Unauthenticated'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No Permission.'
+                properties:
+                  message: { type: string, example: 'No Permission.' }
+      tags:
+        - 'Post endpoint'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                  description: 'require the content of the post. Emxample: Update a post.'
+                  example: nostrum
+    delete:
+      summary: 'delete auth''s post by himself'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        204:
+          description: '204'
+        401:
+          description: '401, Unauthenticated'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message: { type: string, example: Unauthenticated. }
+        403:
+          description: '403, Unauthenticated'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No Permission.'
+                properties:
+                  message: { type: string, example: 'No Permission.' }
+      tags:
+        - 'Post endpoint'
+    get:
+      summary: 'response specified post'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"id\": 1,\n    \"user_id\": 1,\n    \"content\": \"This is a post.\",\n}"
+        401:
+          description: '401, Unauthenticated'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    \"message\": \"Unauthenticated.\""
+      tags:
+        - 'Post endpoint'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the post.'
+        example: 7
+        required: true
+        schema:
+          type: integer
+  '/api/users.comments/{user}':
+    get:
+      summary: 'response all comments of auth user'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    {\n        \"id\": 27,\n        \"post_id\": 3,\n        \"user_id\": 1,\n        \"comment\": \"Illo optio non.\",\n    },\n    {\n        \"id\": 29,\n        \"post_id\": 5,\n        \"user_id\": 1,\n        \"comment\": \"Suscipit sunt animi.\",\n    },\n}"
+        401:
+          description: '401, Unauthenticated'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message: { type: string, example: Unauthenticated. }
+      tags:
+        - 'UserComment endpoint'
+    parameters:
+      -
+        in: path
+        name: user
+        description: 'The ID of the user. emxample: 1'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/users.posts/{user}':
+    get:
+      summary: 'response all posts of specified user'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    {\n        \"id\": 1,\n        \"user_id\": 1,\n        \"content\": \"Consectetur.\",\n    },\n    {\n        \"id\": 2,\n        \"user_id\": 1,\n        \"content\": \"Voluptate ullam.\",\n    },\n}"
+        401:
+          description: '401, Unauthenticated'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message: { type: string, example: Unauthenticated. }
+      tags:
+        - 'UserPost endpoint'
+      security: []
+    parameters:
+      -
+        in: path
+        name: user
+        description: 'The ID of the user. emxample: 1'
+        example: 2
+        required: true
+        schema:
+          type: integer

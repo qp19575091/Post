@@ -21,18 +21,18 @@ use App\Http\Controllers\Api;
 
 Route::middleware('auth:api')->group(function () {
     //get user posts
-    Route::get('users.posts/{user}', [Api\UserPostController::class, 'post']);
+    Route::get('users.posts', [Api\UserPostController::class, 'post']);
     //get user comments
-    Route::get('users.comments/{user}', [Api\UserCommentController::class, 'comment']);
+    Route::get('users.comments', [Api\UserCommentController::class, 'comment']);
 
     //posts resource
     Route::apiresource('posts', Api\PostController::class);
-    Route::get('posts/{id}', [Api\PostController::class, 'show']);
+    //Route::get('posts/{id}', [Api\PostController::class, 'show']);
 
     //posts likes
     Route::get('posts/{post}/likes', [Api\PostLikeController::class, 'sum']);
     Route::post('posts/{post}/likes', [Api\PostLikeController::class, 'like']);
-    Route::delete('posts/{post}/likes', [Api\PostLikeController::class, 'dislike']);
+    //Route::delete('posts/{post}/likes', [Api\PostLikeController::class, 'dislike']);
 
     //comments resource
     Route::apiresource('comments', Api\CommentController::class);

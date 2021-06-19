@@ -60,7 +60,7 @@ endpoints:
         name: post
         description: 'the content of the user. emxample: This is a post'
         required: true
-        example: ipsam
+        example: saepe
         type: string
     responses:
       -
@@ -99,7 +99,7 @@ endpoints:
         name: id
         description: 'The ID of the post.'
         required: true
-        example: 15
+        example: 7
         type: integer
     queryParameters: []
     bodyParameters:
@@ -107,7 +107,7 @@ endpoints:
         name: content
         description: 'require the content of the post. Emxample: Update a post.'
         required: false
-        example: perspiciatis
+        example: nostrum
         type: string
     responses:
       -
@@ -153,7 +153,7 @@ endpoints:
         name: id
         description: 'The ID of the post.'
         required: true
-        example: 16
+        example: 15
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -199,46 +199,7 @@ endpoints:
         name: id
         description: 'The ID of the post.'
         required: true
-        example: 6
-        type: integer
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 200
-        content: |-
-          {
-              "id": 1,
-              "user_id": 1,
-              "content": "This is a post.",
-          }
-        headers: []
-        description: '200'
-      -
-        status: 401
-        content: |-
-          {
-              "message": "Unauthenticated."
-        headers: []
-        description: '401, Unauthenticated'
-    responseFields: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/posts/{id}'
-    metadata:
-      title: 'response specified post'
-      description: ''
-      authenticated: true
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the post.'
-        required: true
-        example: 9
+        example: 7
         type: integer
     queryParameters: []
     bodyParameters: []

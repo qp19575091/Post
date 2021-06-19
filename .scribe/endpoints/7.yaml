@@ -17,7 +17,7 @@ endpoints:
         name: user
         description: 'The ID of the user. emxample: 1'
         required: true
-        example: 16
+        example: 1
         type: integer
     queryParameters: []
     bodyParameters: []

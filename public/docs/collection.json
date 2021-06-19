@@ -10,918 +10,12 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "61cf6b38-e027-4d91-a42e-9ed4a48ea962",
+        "_postman_id": "bbe75d91-1cdd-427e-9691-2abd127393bd",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
-    "item": {
-        "1": {
-            "name": "CommentLike endpoint",
-            "description": "",
-            "item": [
-                {
-                    "name": "show comment total like",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/comments\/:comment\/likes",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/likes",
-                            "variable": [
-                                {
-                                    "id": "comment",
-                                    "key": "comment",
-                                    "value": "16",
-                                    "description": "The ID of the comment. emxample: 1"
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    \"number of the comment like\": 100,\n    \"message\": \"Success\"\n}",
-                            "name": "200"
-                        }
-                    ]
-                },
-                {
-                    "name": "create or destroy comment like",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/comments\/:comment\/likes",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/likes",
-                            "variable": [
-                                {
-                                    "id": "comment",
-                                    "key": "comment",
-                                    "value": "13",
-                                    "description": "The ID of the comment. emxample: 1"
-                                }
-                            ]
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    'message':'Success. Has been like'\n}",
-                            "name": "200"
-                        },
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    'message':'Success. Has been cancel like'\n}",
-                            "name": "200"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
-                            "name": "401, Unauthenticated"
-                        }
-                    ]
-                }
-            ]
-        },
-        "2": {
-            "name": "Comment endpoint",
-            "description": "",
-            "item": [
-                {
-                    "name": "response all comments",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/comments",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/comments"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    {\n         \"id\": 1,\n         \"content\": \"This is a comment1.\",\n         \"user_id\": 1,\n         \"post_id\": 7\n    },\n    {\n         \"id\": 2,\n         \"content\": \"This is a comment2.\",\n         \"user_id\": 1,\n         \"post_id\": 22\n     },\n}",
-                            "name": "200"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
-                            "name": "401, Unauthenticated"
-                        }
-                    ]
-                },
-                {
-                    "name": "update auth's comment by himself",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/comments\/:id",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "20",
-                                    "description": "The ID of the comment."
-                                }
-                            ]
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"content\":\"perspiciatis\"}"
-                        },
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    \"id\": 1,\n    \"post_id\": 7,\n    \"user_id\": 1,\n    \"content\": \"Update a comment.\",\n}",
-                            "name": "200"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n    \"message\": \"Unauthenticated.\"\n{",
-                            "name": "401, Unauthenticated"
-                        },
-                        {
-                            "header": [],
-                            "code": 403,
-                            "body": "{\n    \"message\": \"No Permission.\"\n}",
-                            "name": "403, Unauthenticated"
-                        }
-                    ]
-                },
-                {
-                    "name": "delete auth's comment by himself",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/comments\/:id",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "17",
-                                    "description": "The ID of the comment."
-                                }
-                            ]
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 204,
-                            "body": "{\n\n}",
-                            "name": "204"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
-                            "name": "401, Unauthenticated"
-                        },
-                        {
-                            "header": [],
-                            "code": 403,
-                            "body": "{\n    \"message\": \"No Permission.\"\n}",
-                            "name": "403, Unauthenticated"
-                        }
-                    ]
-                },
-                {
-                    "name": "response specified comment",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/comments\/:id",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "11",
-                                    "description": "The ID of the comment."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    \"id\": 1,\n    \"post_id\": 7,\n    \"user_id\": 1,\n    \"content\": \"This is a comment.\",\n}",
-                            "name": "200"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n    \"message\": \"Unauthenticated.\"",
-                            "name": "401, Unauthenticated"
-                        }
-                    ]
-                }
-            ]
-        },
-        "4": {
-            "name": "PostComment endpoint",
-            "description": "",
-            "item": [
-                {
-                    "name": "create comments by users",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/posts\/:post\/comments",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:post\/comments",
-                            "variable": [
-                                {
-                                    "id": "post",
-                                    "key": "post",
-                                    "value": "12",
-                                    "description": "The ID of the post. emxample: 1"
-                                }
-                            ]
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"comment\":\"vitae\"}"
-                        },
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    \"id\": 1010,\n    \"content\": \"This is a comment\",\n    \"user_id\": 1,\n    \"post_id\": 1\n}",
-                            "name": "200"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
-                            "name": "401, Unauthenticated"
-                        }
-                    ]
-                },
-                {
-                    "name": "response all comments of specified post",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/posts.comments\/:post",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/posts.comments\/:post",
-                            "variable": [
-                                {
-                                    "id": "post",
-                                    "key": "post",
-                                    "value": "2",
-                                    "description": "The ID of the post. emxample: 1"
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    {\n        \"id\": 10,\n        \"content\": \"Aliquam vel modi.\",\n        \"user_id\": 3,\n        \"post_id\": 4\n    },\n    {\n        \"id\": 69,\n        \"content\": \"Et perspiciatis.\",\n        \"user_id\": 1,\n        \"post_id\": 4\n    }\n}",
-                            "name": "200"
-                        }
-                    ]
-                }
-            ]
-        },
-        "5": {
-            "name": "PostLike endpoint",
-            "description": "",
-            "item": [
-                {
-                    "name": "show post total like",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/posts\/:post\/likes",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:post\/likes",
-                            "variable": [
-                                {
-                                    "id": "post",
-                                    "key": "post",
-                                    "value": "11",
-                                    "description": "The ID of the post. emxample: 1"
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    \"number of the post like\": 100,\n    \"message\": \"Success\"\n}",
-                            "name": "200"
-                        }
-                    ]
-                },
-                {
-                    "name": "create or destroy post like",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/posts\/:post\/likes",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:post\/likes",
-                            "variable": [
-                                {
-                                    "id": "post",
-                                    "key": "post",
-                                    "value": "16",
-                                    "description": "The ID of the post. emxample: 1"
-                                }
-                            ]
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    'message':'Success. Has been like'\n}",
-                            "name": "200"
-                        },
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    'message':'Success. Has been cancel like'\n}",
-                            "name": "200"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
-                            "name": "401, Unauthenticated"
-                        }
-                    ]
-                }
-            ]
-        },
-        "6": {
-            "name": "Post endpoint",
-            "description": "",
-            "item": [
-                {
-                    "name": "response all posts",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/posts",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/posts"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    {\n         \"id\": 1,\n         \"content\": \"This is a post1.\",\n         \"user_id\": 1,\n    },\n    {\n         \"id\": 2,\n         \"content\": \"This is a post2.\",\n         \"user_id\": 2,\n     },\n}",
-                            "name": "200"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
-                            "name": "401, Unauthenticated"
-                        }
-                    ]
-                },
-                {
-                    "name": "create posts by users",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/posts",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/posts"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"post\":\"ipsam\"}"
-                        },
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    \"id\": 1010,\n    \"content\": \"This is a post\",\n    \"user_id\": 1,\n}",
-                            "name": "200"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
-                            "name": "401, Unauthenticated"
-                        }
-                    ]
-                },
-                {
-                    "name": "update auth's post by himself",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/posts\/:id",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "15",
-                                    "description": "The ID of the post."
-                                }
-                            ]
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"content\":\"perspiciatis\"}"
-                        },
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    \"id\": 1,\n    \"user_id\": 1,\n    \"content\": \"Update a post.\",\n}",
-                            "name": "200"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n    \"message\": \"Unauthenticated.\"\n{",
-                            "name": "401, Unauthenticated"
-                        },
-                        {
-                            "header": [],
-                            "code": 403,
-                            "body": "{\n    \"message\": \"No Permission.\"\n}",
-                            "name": "403, Unauthenticated"
-                        }
-                    ]
-                },
-                {
-                    "name": "delete auth's post by himself",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/posts\/:id",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "16",
-                                    "description": "The ID of the post."
-                                }
-                            ]
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 204,
-                            "body": "{\n\n}",
-                            "name": "204"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
-                            "name": "401, Unauthenticated"
-                        },
-                        {
-                            "header": [],
-                            "code": 403,
-                            "body": "{\n    \"message\": \"No Permission.\"\n}",
-                            "name": "403, Unauthenticated"
-                        }
-                    ]
-                },
-                {
-                    "name": "response specified post",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/posts\/:id",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "6",
-                                    "description": "The ID of the post."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    \"id\": 1,\n    \"user_id\": 1,\n    \"content\": \"This is a post.\",\n}",
-                            "name": "200"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n    \"message\": \"Unauthenticated.\"",
-                            "name": "401, Unauthenticated"
-                        }
-                    ]
-                },
-                {
-                    "name": "response specified post",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/posts\/:id",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "9",
-                                    "description": "The ID of the post."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    \"id\": 1,\n    \"user_id\": 1,\n    \"content\": \"This is a post.\",\n}",
-                            "name": "200"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n    \"message\": \"Unauthenticated.\"",
-                            "name": "401, Unauthenticated"
-                        }
-                    ]
-                }
-            ]
-        },
-        "7": {
-            "name": "UserComment endpoint",
-            "description": "",
-            "item": [
-                {
-                    "name": "response all comments of auth user",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/users.comments\/:user",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/users.comments\/:user",
-                            "variable": [
-                                {
-                                    "id": "user",
-                                    "key": "user",
-                                    "value": "16",
-                                    "description": "The ID of the user. emxample: 1"
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    {\n        \"id\": 27,\n        \"post_id\": 3,\n        \"user_id\": 1,\n        \"comment\": \"Illo optio non.\",\n    },\n    {\n        \"id\": 29,\n        \"post_id\": 5,\n        \"user_id\": 1,\n        \"comment\": \"Suscipit sunt animi.\",\n    },\n}",
-                            "name": "200"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
-                            "name": "401, Unauthenticated"
-                        }
-                    ]
-                }
-            ]
-        },
-        "8": {
-            "name": "UserPost endpoint",
-            "description": "",
-            "item": [
-                {
-                    "name": "response all posts of specified user",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/users.posts\/:user",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/users.posts\/:user",
-                            "variable": [
-                                {
-                                    "id": "user",
-                                    "key": "user",
-                                    "value": "18",
-                                    "description": "The ID of the user. emxample: 1"
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    {\n        \"id\": 1,\n        \"user_id\": 1,\n        \"content\": \"Consectetur.\",\n    },\n    {\n        \"id\": 2,\n        \"user_id\": 1,\n        \"content\": \"Voluptate ullam.\",\n    },\n}",
-                            "name": "200"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
-                            "name": "401, Unauthenticated"
-                        }
-                    ]
-                }
-            ]
-        },
-        "0": {
+    "item": [
+        {
             "name": "Auth endpoints",
             "description": "",
             "item": [
@@ -1113,7 +207,311 @@
                 }
             ]
         },
-        "3": {
+        {
+            "name": "CommentLike endpoint",
+            "description": "",
+            "item": [
+                {
+                    "name": "show comment total like",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments\/:comment\/likes",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/likes",
+                            "variable": [
+                                {
+                                    "id": "comment",
+                                    "key": "comment",
+                                    "value": "7",
+                                    "description": "The ID of the comment. emxample: 1"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"number of the comment like\": 100,\n    \"message\": \"Success\"\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "create or destroy comment like",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments\/:comment\/likes",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/likes",
+                            "variable": [
+                                {
+                                    "id": "comment",
+                                    "key": "comment",
+                                    "value": "17",
+                                    "description": "The ID of the comment. emxample: 1"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    'message':'Success. Has been like'\n}",
+                            "name": "200"
+                        },
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    'message':'Success. Has been cancel like'\n}",
+                            "name": "200"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
+                            "name": "401, Unauthenticated"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Comment endpoint",
+            "description": "",
+            "item": [
+                {
+                    "name": "response all comments",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comments"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    {\n         \"id\": 1,\n         \"content\": \"This is a comment1.\",\n         \"user_id\": 1,\n         \"post_id\": 7\n    },\n    {\n         \"id\": 2,\n         \"content\": \"This is a comment2.\",\n         \"user_id\": 1,\n         \"post_id\": 22\n     },\n}",
+                            "name": "200"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
+                            "name": "401, Unauthenticated"
+                        }
+                    ]
+                },
+                {
+                    "name": "update auth's comment by himself",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "8",
+                                    "description": "The ID of the comment."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"content\":\"nihil\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"id\": 1,\n    \"post_id\": 7,\n    \"user_id\": 1,\n    \"content\": \"Update a comment.\",\n}",
+                            "name": "200"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n    \"message\": \"Unauthenticated.\"\n{",
+                            "name": "401, Unauthenticated"
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n    \"message\": \"No Permission.\"\n}",
+                            "name": "403, Unauthenticated"
+                        }
+                    ]
+                },
+                {
+                    "name": "delete auth's comment by himself",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "10",
+                                    "description": "The ID of the comment."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{\n\n}",
+                            "name": "204"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
+                            "name": "401, Unauthenticated"
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n    \"message\": \"No Permission.\"\n}",
+                            "name": "403, Unauthenticated"
+                        }
+                    ]
+                },
+                {
+                    "name": "response specified comment",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "15",
+                                    "description": "The ID of the comment."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"id\": 1,\n    \"post_id\": 7,\n    \"user_id\": 1,\n    \"content\": \"This is a comment.\",\n}",
+                            "name": "200"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n    \"message\": \"Unauthenticated.\"",
+                            "name": "401, Unauthenticated"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Endpoints",
             "description": "",
             "item": [
@@ -1169,14 +567,569 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "0.022063970565796",
+                            "body": "0.14840292930603",
                             "name": null
                         }
                     ]
                 }
             ]
+        },
+        {
+            "name": "PostComment endpoint",
+            "description": "",
+            "item": [
+                {
+                    "name": "create comments by users",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:post\/comments",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:post\/comments",
+                            "variable": [
+                                {
+                                    "id": "post",
+                                    "key": "post",
+                                    "value": "6",
+                                    "description": "The ID of the post. emxample: 1"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"comment\":\"non\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"id\": 1010,\n    \"content\": \"This is a comment\",\n    \"user_id\": 1,\n    \"post_id\": 1\n}",
+                            "name": "200"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
+                            "name": "401, Unauthenticated"
+                        }
+                    ]
+                },
+                {
+                    "name": "response all comments of specified post",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts.comments\/:post",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts.comments\/:post",
+                            "variable": [
+                                {
+                                    "id": "post",
+                                    "key": "post",
+                                    "value": "5",
+                                    "description": "The ID of the post. emxample: 1"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    {\n        \"id\": 10,\n        \"content\": \"Aliquam vel modi.\",\n        \"user_id\": 3,\n        \"post_id\": 4\n    },\n    {\n        \"id\": 69,\n        \"content\": \"Et perspiciatis.\",\n        \"user_id\": 1,\n        \"post_id\": 4\n    }\n}",
+                            "name": "200"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "PostLike endpoint",
+            "description": "",
+            "item": [
+                {
+                    "name": "show post total like",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:post\/likes",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:post\/likes",
+                            "variable": [
+                                {
+                                    "id": "post",
+                                    "key": "post",
+                                    "value": "3",
+                                    "description": "The ID of the post. emxample: 1"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"number of the post like\": 100,\n    \"message\": \"Success\"\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "create or destroy post like",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:post\/likes",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:post\/likes",
+                            "variable": [
+                                {
+                                    "id": "post",
+                                    "key": "post",
+                                    "value": "3",
+                                    "description": "The ID of the post. emxample: 1"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    'message':'Success. Has been like'\n}",
+                            "name": "200"
+                        },
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    'message':'Success. Has been cancel like'\n}",
+                            "name": "200"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
+                            "name": "401, Unauthenticated"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Post endpoint",
+            "description": "",
+            "item": [
+                {
+                    "name": "response all posts",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    {\n         \"id\": 1,\n         \"content\": \"This is a post1.\",\n         \"user_id\": 1,\n    },\n    {\n         \"id\": 2,\n         \"content\": \"This is a post2.\",\n         \"user_id\": 2,\n     },\n}",
+                            "name": "200"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
+                            "name": "401, Unauthenticated"
+                        }
+                    ]
+                },
+                {
+                    "name": "create posts by users",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"post\":\"saepe\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"id\": 1010,\n    \"content\": \"This is a post\",\n    \"user_id\": 1,\n}",
+                            "name": "200"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
+                            "name": "401, Unauthenticated"
+                        }
+                    ]
+                },
+                {
+                    "name": "update auth's post by himself",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "7",
+                                    "description": "The ID of the post."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"content\":\"nostrum\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"id\": 1,\n    \"user_id\": 1,\n    \"content\": \"Update a post.\",\n}",
+                            "name": "200"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n    \"message\": \"Unauthenticated.\"\n{",
+                            "name": "401, Unauthenticated"
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n    \"message\": \"No Permission.\"\n}",
+                            "name": "403, Unauthenticated"
+                        }
+                    ]
+                },
+                {
+                    "name": "delete auth's post by himself",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "15",
+                                    "description": "The ID of the post."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{\n\n}",
+                            "name": "204"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
+                            "name": "401, Unauthenticated"
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\n    \"message\": \"No Permission.\"\n}",
+                            "name": "403, Unauthenticated"
+                        }
+                    ]
+                },
+                {
+                    "name": "response specified post",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "7",
+                                    "description": "The ID of the post."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"id\": 1,\n    \"user_id\": 1,\n    \"content\": \"This is a post.\",\n}",
+                            "name": "200"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n    \"message\": \"Unauthenticated.\"",
+                            "name": "401, Unauthenticated"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "UserComment endpoint",
+            "description": "",
+            "item": [
+                {
+                    "name": "response all comments of auth user",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users.comments\/:user",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/users.comments\/:user",
+                            "variable": [
+                                {
+                                    "id": "user",
+                                    "key": "user",
+                                    "value": "1",
+                                    "description": "The ID of the user. emxample: 1"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    {\n        \"id\": 27,\n        \"post_id\": 3,\n        \"user_id\": 1,\n        \"comment\": \"Illo optio non.\",\n    },\n    {\n        \"id\": 29,\n        \"post_id\": 5,\n        \"user_id\": 1,\n        \"comment\": \"Suscipit sunt animi.\",\n    },\n}",
+                            "name": "200"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
+                            "name": "401, Unauthenticated"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "UserPost endpoint",
+            "description": "",
+            "item": [
+                {
+                    "name": "response all posts of specified user",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users.posts\/:user",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/users.posts\/:user",
+                            "variable": [
+                                {
+                                    "id": "user",
+                                    "key": "user",
+                                    "value": "2",
+                                    "description": "The ID of the user. emxample: 1"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    {\n        \"id\": 1,\n        \"user_id\": 1,\n        \"content\": \"Consectetur.\",\n    },\n    {\n        \"id\": 2,\n        \"user_id\": 1,\n        \"content\": \"Voluptate ullam.\",\n    },\n}",
+                            "name": "200"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
+                            "name": "401, Unauthenticated"
+                        }
+                    ]
+                }
+            ]
         }
-    },
+    ],
     "auth": {
         "type": "noauth"
     }

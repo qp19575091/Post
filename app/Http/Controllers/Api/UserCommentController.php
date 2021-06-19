@@ -40,6 +40,11 @@ class UserCommentController extends Controller
      */
     public function comment(User $user)
     {
-        return CommentResource::collection($user->comments()->get());
+        $user = User::where('id', auth()->user()->id)->first();
+
+        if($user){
+            $comments = $user->comments()->get();
+            return CommentResource::collection($comments);
+        }
     }
 }

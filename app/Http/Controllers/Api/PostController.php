@@ -15,7 +15,7 @@ class PostController extends Controller
     /**
      * response all posts
      * 
-     * @authenticated
+     * 
      * 
      * @response 200{
      *     {

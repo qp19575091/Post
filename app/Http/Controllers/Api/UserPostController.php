@@ -36,8 +36,11 @@ class UserPostController extends Controller
      */
     public function post(User $user)
     {
-        $posts = $user->posts()->get();
+        $user = User::where('id', auth()->user()->id)->first();
 
-        return PostResource::collection($posts);;
+        if($user){
+            $posts = $user->posts()->get();
+            return PostResource::collection($posts);;
+        }
     }
 }
