@@ -20,6 +20,11 @@ use App\Http\Controllers\Api;
 // });
 
 Route::middleware('auth:api')->group(function () {
+    //get auth user posts
+    Route::get('users.posts', [Api\UserPostController::class, 'post']);
+    //get auth user comments
+    Route::get('users.comments', [Api\UserCommentController::class, 'comment']);
+
     //posts resource
     Route::apiresource('posts', Api\PostController::class)->only('store', 'destroy', 'update');
     //comments resource
@@ -43,10 +48,7 @@ Route::post('register', [Api\UserController::class, 'register']);
 //user login
 Route::post('login', [Api\UserController::class, 'login']);
 
-//get auth user posts
-Route::get('users.posts', [Api\UserPostController::class, 'post']);
-//get auth user comments
-Route::get('users.comments', [Api\UserCommentController::class, 'comment']);
+
 
 //posts resource
 Route::apiresource('posts', Api\PostController::class)->only('index', 'show');
