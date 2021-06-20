@@ -96,13 +96,12 @@ class CommentController extends Controller
     {
         $comment = Comment::where('id', $comment->id)->where('user_id', auth()->user()->id)->first();
 
-        if($comment){
+        if ($comment) {
             $comment->update(['content' => $request->content]);
             return new CommentResource($comment);
         }
 
         return response()->json(['message' => 'No Permission'], 403);
-        
     }
 
     /**

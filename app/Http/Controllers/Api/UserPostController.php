@@ -38,7 +38,7 @@ class UserPostController extends Controller
     {
         $user = User::where('id', auth()->user()->id)->first();
 
-        if($user){
+        if ($user) {
             $posts = $user->posts()->get();
             return PostResource::collection($posts);;
         }

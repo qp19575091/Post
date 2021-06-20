@@ -87,7 +87,7 @@ class PostController extends Controller
         return new PostResource($post);
     }
 
-     /**
+    /**
      * update auth's post by himself
      *
      * @authenticated
@@ -113,7 +113,7 @@ class PostController extends Controller
     {
         $post = Post::where('id', $post->id)->where('user_id', auth()->user()->id)->first();
 
-        if($post){
+        if ($post) {
             $post->update(['content' => $request->content]);
             return new PostResource($post);
         }
@@ -121,7 +121,7 @@ class PostController extends Controller
         return response()->json(['message' => 'No Permission'], 403);
     }
 
-   /**
+    /**
      * delete auth's post by himself
      *
      * @authenticated

@@ -42,7 +42,7 @@ class UserCommentController extends Controller
     {
         $user = User::where('id', auth()->user()->id)->first();
 
-        if($user){
+        if ($user) {
             $comments = $user->comments()->get();
             return CommentResource::collection($comments);
         }

@@ -51,7 +51,7 @@ class PostLikeController extends Controller
     public function sum(Post $post)
     {
         $sum = $post->sumLike($post, $post->id);
-        
+
         return $sum;
     }
 }

@@ -10,7 +10,7 @@ use App\Models\Comment;
  */
 class CommentLikeController extends Controller
 {
-    
+
     /**
      * create or destroy comment like
      * 
