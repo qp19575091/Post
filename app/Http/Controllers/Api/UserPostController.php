@@ -13,7 +13,9 @@ class UserPostController extends Controller
 {
     /**
      * response all posts of specified user
-     *
+     * 
+     * @authenticated
+
      * @urlParam user integer required The ID of the user. emxample: 1
      *
      * @response 200{

@@ -8,7 +8,7 @@ endpoints:
       - GET
     uri: 'api/comments/{comment}/likes'
     metadata:
-      title: 'show comment total like'
+      title: 'show amount of comment total like'
       description: ''
       authenticated: false
     headers:
@@ -19,7 +19,7 @@ endpoints:
         name: comment
         description: 'The ID of the comment. emxample: 1'
         required: true
-        example: 7
+        example: 17
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -59,7 +59,7 @@ endpoints:
         status: 200
         content: |-
           {
-              'message':'Success. Has been like'
+              "message":"Success. Has been like"
           }
         headers: []
         description: '200'
@@ -67,7 +67,7 @@ endpoints:
         status: 200
         content: |-
           {
-              'message':'Success. Has been cancel like'
+              "message":"Success. Has been cancel like"
           }
         headers: []
         description: '200'

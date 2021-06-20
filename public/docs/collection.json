@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "bbe75d91-1cdd-427e-9691-2abd127393bd",
+        "_postman_id": "0a6ddabf-d17b-4e69-90f7-09a0d2db81f1",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -212,7 +212,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "show comment total like",
+                    "name": "show amount of comment total like",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -224,7 +224,7 @@
                                 {
                                     "id": "comment",
                                     "key": "comment",
-                                    "value": "7",
+                                    "value": "17",
                                     "description": "The ID of the comment. emxample: 1"
                                 }
                             ]
@@ -291,13 +291,13 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n    'message':'Success. Has been like'\n}",
+                            "body": "{\n    \"message\":\"Success. Has been like\"\n}",
                             "name": "200"
                         },
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n    'message':'Success. Has been cancel like'\n}",
+                            "body": "{\n    \"message\":\"Success. Has been cancel like\"\n}",
                             "name": "200"
                         },
                         {
@@ -336,7 +336,10 @@
                             }
                         ],
                         "body": null,
-                        "description": ""
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
                     },
                     "response": [
                         {
@@ -344,12 +347,6 @@
                             "code": 200,
                             "body": "{\n    {\n         \"id\": 1,\n         \"content\": \"This is a comment1.\",\n         \"user_id\": 1,\n         \"post_id\": 7\n    },\n    {\n         \"id\": 2,\n         \"content\": \"This is a comment2.\",\n         \"user_id\": 1,\n         \"post_id\": 22\n     },\n}",
                             "name": "200"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
-                            "name": "401, Unauthenticated"
                         }
                     ]
                 },
@@ -384,7 +381,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"content\":\"nihil\"}"
+                            "raw": "{\"content\":\"quia\"}"
                         },
                         "description": ""
                     },
@@ -475,55 +472,10 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "15",
+                                    "value": "5",
                                     "description": "The ID of the comment."
                                 }
                             ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": ""
-                    },
-                    "response": [
-                        {
-                            "header": [],
-                            "code": 200,
-                            "body": "{\n    \"id\": 1,\n    \"post_id\": 7,\n    \"user_id\": 1,\n    \"content\": \"This is a comment.\",\n}",
-                            "name": "200"
-                        },
-                        {
-                            "header": [],
-                            "code": 401,
-                            "body": "{\n    \"message\": \"Unauthenticated.\"",
-                            "name": "401, Unauthenticated"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "Endpoints",
-            "description": "",
-            "item": [
-                {
-                    "name": "api\/test",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/test",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/test"
                         },
                         "method": "GET",
                         "header": [
@@ -544,31 +496,16 @@
                     },
                     "response": [
                         {
-                            "header": [
-                                {
-                                    "key": "content-type",
-                                    "value": "text\/html; charset=UTF-8"
-                                },
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "x-ratelimit-limit",
-                                    "value": "60"
-                                },
-                                {
-                                    "key": "x-ratelimit-remaining",
-                                    "value": "59"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
+                            "header": [],
                             "code": 200,
-                            "body": "0.14840292930603",
-                            "name": null
+                            "body": "{\n    \"id\": 1,\n    \"post_id\": 7,\n    \"user_id\": 1,\n    \"content\": \"This is a comment.\",\n}",
+                            "name": "200"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n    \"message\": \"Unauthenticated.\"",
+                            "name": "401, Unauthenticated"
                         }
                     ]
                 }
@@ -591,7 +528,7 @@
                                 {
                                     "id": "post",
                                     "key": "post",
-                                    "value": "6",
+                                    "value": "17",
                                     "description": "The ID of the post. emxample: 1"
                                 }
                             ]
@@ -609,7 +546,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"comment\":\"non\"}"
+                            "raw": "{\"comment\":\"fugiat\"}"
                         },
                         "description": ""
                     },
@@ -679,7 +616,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "show post total like",
+                    "name": "show amount of post total like",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -691,7 +628,7 @@
                                 {
                                     "id": "post",
                                     "key": "post",
-                                    "value": "3",
+                                    "value": "17",
                                     "description": "The ID of the post. emxample: 1"
                                 }
                             ]
@@ -735,7 +672,7 @@
                                 {
                                     "id": "post",
                                     "key": "post",
-                                    "value": "3",
+                                    "value": "19",
                                     "description": "The ID of the post. emxample: 1"
                                 }
                             ]
@@ -758,13 +695,13 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n    'message':'Success. Has been like'\n}",
+                            "body": "{\n    \"message\":\"Success. Has been like\"\n}",
                             "name": "200"
                         },
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\n    'message':'Success. Has been cancel like'\n}",
+                            "body": "{\n    \"message\":\"Success. Has been cancel like\"\n}",
                             "name": "200"
                         },
                         {
@@ -803,7 +740,10 @@
                             }
                         ],
                         "body": null,
-                        "description": ""
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
                     },
                     "response": [
                         {
@@ -843,7 +783,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"post\":\"saepe\"}"
+                            "raw": "{\"post\":\"eos\"}"
                         },
                         "description": ""
                     },
@@ -875,7 +815,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "7",
+                                    "value": "17",
                                     "description": "The ID of the post."
                                 }
                             ]
@@ -893,7 +833,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"content\":\"nostrum\"}"
+                            "raw": "{\"content\":\"ducimus\"}"
                         },
                         "description": ""
                     },
@@ -931,7 +871,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "15",
+                                    "value": "11",
                                     "description": "The ID of the post."
                                 }
                             ]
@@ -984,7 +924,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "7",
+                                    "value": "2",
                                     "description": "The ID of the post."
                                 }
                             ]
@@ -1001,7 +941,10 @@
                             }
                         ],
                         "body": null,
-                        "description": ""
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
                     },
                     "response": [
                         {
@@ -1030,14 +973,14 @@
                         "url": {
                             "protocol": "http",
                             "host": "{{baseUrl}}",
-                            "path": "api\/users.comments\/:user",
+                            "path": "api\/users.comments",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/users.comments\/:user",
+                            "raw": "http:\/\/{{baseUrl}}\/api\/users.comments",
                             "variable": [
                                 {
                                     "id": "user",
                                     "key": "user",
-                                    "value": "1",
+                                    "value": "18",
                                     "description": "The ID of the user. emxample: 1"
                                 }
                             ]
@@ -1083,14 +1026,14 @@
                         "url": {
                             "protocol": "http",
                             "host": "{{baseUrl}}",
-                            "path": "api\/users.posts\/:user",
+                            "path": "api\/users.posts",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/users.posts\/:user",
+                            "raw": "http:\/\/{{baseUrl}}\/api\/users.posts",
                             "variable": [
                                 {
                                     "id": "user",
                                     "key": "user",
-                                    "value": "2",
+                                    "value": "18",
                                     "description": "The ID of the user. emxample: 1"
                                 }
                             ]
@@ -1107,10 +1050,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {

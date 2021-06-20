@@ -10,7 +10,7 @@ endpoints:
     metadata:
       title: 'response all comments'
       description: ''
-      authenticated: true
+      authenticated: false
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -37,14 +37,6 @@ endpoints:
           }
         headers: []
         description: '200'
-      -
-        status: 401
-        content: |-
-          {
-              "message": "Unauthenticated."
-          }
-        headers: []
-        description: '401, Unauthenticated'
     responseFields: []
   -
     httpMethods:
@@ -71,7 +63,7 @@ endpoints:
         name: content
         description: 'require the content of the post. Emxample: Update a comment.'
         required: false
-        example: nihil
+        example: quia
         type: string
     responses:
       -
@@ -155,7 +147,7 @@ endpoints:
     metadata:
       title: 'response specified comment'
       description: ''
-      authenticated: true
+      authenticated: false
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -164,7 +156,7 @@ endpoints:
         name: id
         description: 'The ID of the comment.'
         required: true
-        example: 15
+        example: 5
         type: integer
     queryParameters: []
     bodyParameters: []

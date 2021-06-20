@@ -19,11 +19,11 @@ class CommentLikeController extends Controller
      * @urlParam comment integer required The ID of the comment. emxample: 1
      * 
      * @response 200 {
-     *     'message':'Success. Has been like'
+     *     "message":"Success. Has been like"
      * }
      * 
      * @response 200 {
-     *     'message':'Success. Has been cancel like'
+     *     "message":"Success. Has been cancel like"
      * }
      * 
      * @response status=401 scenario="Unauthenticated" {
@@ -42,7 +42,7 @@ class CommentLikeController extends Controller
     // }
 
     /**
-     * show comment total like
+     * show amount of comment total like
      * 
      * @urlParam comment integer required The ID of the comment. emxample: 1
      * 

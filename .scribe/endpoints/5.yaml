@@ -1,24 +1,18 @@
-name: 'PostLike endpoint'
+name: 'Post endpoint'
 description: ''
 endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/posts/{post}/likes'
+    uri: api/posts
     metadata:
-      title: 'show post total like'
+      title: 'response all posts'
       description: ''
       authenticated: false
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
-      post:
-        name: post
-        description: 'The ID of the post. emxample: 1'
-        required: true
-        example: 3
-        type: integer
+    urlParameters: []
     queryParameters: []
     bodyParameters: []
     responses:
@@ -26,46 +20,16 @@ endpoints:
         status: 200
         content: |-
           {
-              "number of the post like": 100,
-              "message": "Success"
-          }
-        headers: []
-        description: '200'
-    responseFields: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/posts/{post}/likes'
-    metadata:
-      title: 'create or destroy post like'
-      description: ''
-      authenticated: true
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      post:
-        name: post
-        description: 'The ID of the post. emxample: 1'
-        required: true
-        example: 3
-        type: integer
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 200
-        content: |-
-          {
-              'message':'Success. Has been like'
-          }
-        headers: []
-        description: '200'
-      -
-        status: 200
-        content: |-
-          {
-              'message':'Success. Has been cancel like'
+              {
+                   "id": 1,
+                   "content": "This is a post1.",
+                   "user_id": 1,
+              },
+              {
+                   "id": 2,
+                   "content": "This is a post2.",
+                   "user_id": 2,
+               },
           }
         headers: []
         description: '200'
@@ -75,6 +39,186 @@ endpoints:
           {
               "message": "Unauthenticated."
           }
+        headers: []
+        description: '401, Unauthenticated'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/posts
+    metadata:
+      title: 'create posts by users'
+      description: ''
+      authenticated: true
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      post:
+        name: post
+        description: 'the content of the user. emxample: This is a post'
+        required: true
+        example: eos
+        type: string
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "id": 1010,
+              "content": "This is a post",
+              "user_id": 1,
+          }
+        headers: []
+        description: '200'
+      -
+        status: 401
+        content: |-
+          {
+              "message": "Unauthenticated."
+          }
+        headers: []
+        description: '401, Unauthenticated'
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/posts/{id}'
+    metadata:
+      title: 'update auth''s post by himself'
+      description: ''
+      authenticated: true
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the post.'
+        required: true
+        example: 17
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      content:
+        name: content
+        description: 'require the content of the post. Emxample: Update a post.'
+        required: false
+        example: ducimus
+        type: string
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "id": 1,
+              "user_id": 1,
+              "content": "Update a post.",
+          }
+        headers: []
+        description: '200'
+      -
+        status: 401
+        content: |-
+          {
+              "message": "Unauthenticated."
+          {
+        headers: []
+        description: '401, Unauthenticated'
+      -
+        status: 403
+        content: |-
+          {
+              "message": "No Permission."
+          }
+        headers: []
+        description: '403, Unauthenticated'
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/posts/{id}'
+    metadata:
+      title: 'delete auth''s post by himself'
+      description: ''
+      authenticated: true
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the post.'
+        required: true
+        example: 11
+        type: integer
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 204
+        content: |-
+          {
+
+          }
+        headers: []
+        description: '204'
+      -
+        status: 401
+        content: |-
+          {
+              "message": "Unauthenticated."
+          }
+        headers: []
+        description: '401, Unauthenticated'
+      -
+        status: 403
+        content: |-
+          {
+              "message": "No Permission."
+          }
+        headers: []
+        description: '403, Unauthenticated'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/posts/{id}'
+    metadata:
+      title: 'response specified post'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the post.'
+        required: true
+        example: 2
+        type: integer
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              "id": 1,
+              "user_id": 1,
+              "content": "This is a post.",
+          }
+        headers: []
+        description: '200'
+      -
+        status: 401
+        content: |-
+          {
+              "message": "Unauthenticated."
         headers: []
         description: '401, Unauthenticated'
     responseFields: []

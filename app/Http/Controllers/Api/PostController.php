@@ -70,7 +70,7 @@ class PostController extends Controller
     /**
      * response specified post
      *
-     * @authenticated
+     * 
      * 
      * @response 200{
      *     "id": 1,

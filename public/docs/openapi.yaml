@@ -238,7 +238,7 @@ paths:
       security: []
   '/api/comments/{comment}/likes':
     get:
-      summary: 'show comment total like'
+      summary: 'show amount of comment total like'
       description: ''
       parameters:
         -
@@ -293,10 +293,13 @@ paths:
         200:
           description: '200'
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
-                example: "{\n    'message':'Success. Has been cancel like'\n}"
+                type: object
+                example:
+                  message: 'Success. Has been cancel like'
+                properties:
+                  message: { type: string, example: 'Success. Has been cancel like' }
         401:
           description: '401, Unauthenticated'
           content:
@@ -314,7 +317,7 @@ paths:
         in: path
         name: comment
         description: 'The ID of the comment. emxample: 1'
-        example: 7
+        example: 17
         required: true
         schema:
           type: integer
@@ -345,18 +348,9 @@ paths:
               schema:
                 type: string
                 example: "{\n    {\n         \"id\": 1,\n         \"content\": \"This is a comment1.\",\n         \"user_id\": 1,\n         \"post_id\": 7\n    },\n    {\n         \"id\": 2,\n         \"content\": \"This is a comment2.\",\n         \"user_id\": 1,\n         \"post_id\": 22\n     },\n}"
-        401:
-          description: '401, Unauthenticated'
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message: { type: string, example: Unauthenticated. }
       tags:
         - 'Comment endpoint'
+      security: []
   '/api/comments/{id}':
     put:
       summary: 'update auth''s comment by himself'
@@ -413,7 +407,7 @@ paths:
                 content:
                   type: string
                   description: 'require the content of the post. Emxample: Update a comment.'
-                  example: nihil
+                  example: quia
     delete:
       summary: 'delete auth''s comment by himself'
       description: ''
@@ -492,6 +486,7 @@ paths:
                 example: "{\n    \"message\": \"Unauthenticated.\""
       tags:
         - 'Comment endpoint'
+      security: []
     parameters:
       -
         in: path
@@ -501,36 +496,6 @@ paths:
         required: true
         schema:
           type: integer
-  /api/test:
-    get:
-      summary: ''
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: number
-                example: 0.14840292930603
-      tags:
-        - Endpoints
-      security: []
   '/api/posts/{post}/comments':
     post:
       summary: 'create comments by users'
@@ -589,7 +554,7 @@ paths:
                 comment:
                   type: string
                   description: 'the content of the user. emxample: This is a comment'
-                  example: non
+                  example: fugiat
               required:
                 - comment
     parameters:
@@ -597,7 +562,7 @@ paths:
         in: path
         name: post
         description: 'The ID of the post. emxample: 1'
-        example: 6
+        example: 17
         required: true
         schema:
           type: integer
@@ -642,7 +607,7 @@ paths:
           type: integer
   '/api/posts/{post}/likes':
     get:
-      summary: 'show post total like'
+      summary: 'show amount of post total like'
       description: ''
       parameters:
         -
@@ -697,10 +662,13 @@ paths:
         200:
           description: '200'
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
-                example: "{\n    'message':'Success. Has been cancel like'\n}"
+                type: object
+                example:
+                  message: 'Success. Has been cancel like'
+                properties:
+                  message: { type: string, example: 'Success. Has been cancel like' }
         401:
           description: '401, Unauthenticated'
           content:
@@ -718,7 +686,7 @@ paths:
         in: path
         name: post
         description: 'The ID of the post. emxample: 1'
-        example: 3
+        example: 17
         required: true
         schema:
           type: integer
@@ -761,6 +729,7 @@ paths:
                   message: { type: string, example: Unauthenticated. }
       tags:
         - 'Post endpoint'
+      security: []
     post:
       summary: 'create posts by users'
       description: ''
@@ -809,7 +778,7 @@ paths:
                 post:
                   type: string
                   description: 'the content of the user. emxample: This is a post'
-                  example: saepe
+                  example: eos
               required:
                 - post
   '/api/posts/{id}':
@@ -868,7 +837,7 @@ paths:
                 content:
                   type: string
                   description: 'require the content of the post. Emxample: Update a post.'
-                  example: nostrum
+                  example: ducimus
     delete:
       summary: 'delete auth''s post by himself'
       description: ''
@@ -947,16 +916,17 @@ paths:
                 example: "{\n    \"message\": \"Unauthenticated.\""
       tags:
         - 'Post endpoint'
+      security: []
     parameters:
       -
         in: path
         name: id
         description: 'The ID of the post.'
-        example: 7
+        example: 17
         required: true
         schema:
           type: integer
-  '/api/users.comments/{user}':
+  /api/users.comments:
     get:
       summary: 'response all comments of auth user'
       description: ''
@@ -1000,11 +970,11 @@ paths:
         in: path
         name: user
         description: 'The ID of the user. emxample: 1'
-        example: 1
+        example: 18
         required: true
         schema:
           type: integer
-  '/api/users.posts/{user}':
+  /api/users.posts:
     get:
       summary: 'response all posts of specified user'
       description: ''
@@ -1043,13 +1013,12 @@ paths:
                   message: { type: string, example: Unauthenticated. }
       tags:
         - 'UserPost endpoint'
-      security: []
     parameters:
       -
         in: path
         name: user
         description: 'The ID of the user. emxample: 1'
-        example: 2
+        example: 18
         required: true
         schema:
           type: integer

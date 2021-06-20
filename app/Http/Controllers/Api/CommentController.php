@@ -19,7 +19,7 @@ class CommentController extends Controller
     /**
      * response all comments
      * 
-     * @authenticated
+     * 
      * 
      * @response 200{
      *     {
@@ -36,9 +36,7 @@ class CommentController extends Controller
      *      },
      * }
      *
-     * @response status=401 scenario="Unauthenticated" {
-     *     "message": "Unauthenticated."
-     * }
+     * 
      * 
      */
     public function index()
@@ -51,7 +49,7 @@ class CommentController extends Controller
     /**
      * response specified comment
      *
-     * @authenticated
+     * 
      * 
      * @response 200{
      *     "id": 1,
@@ -96,12 +94,13 @@ class CommentController extends Controller
     {
         $comment = Comment::where('id', $comment->id)->where('user_id', auth()->user()->id)->first();
 
-        if ($comment) {
+        if($comment){
             $comment->update(['content' => $request->content]);
             return new CommentResource($comment);
         }
 
         return response()->json(['message' => 'No Permission'], 403);
+        
     }
 
     /**

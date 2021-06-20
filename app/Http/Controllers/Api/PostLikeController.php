@@ -18,11 +18,11 @@ class PostLikeController extends Controller
      * @urlParam post integer required The ID of the post. emxample: 1
      * 
      * @response 200 {
-     *     'message':'Success. Has been like'
+     *     "message":"Success. Has been like"
      * }
      * 
      * @response 200 {
-     *     'message':'Success. Has been cancel like'
+     *     "message":"Success. Has been cancel like"
      * }
      * 
      * @response status=401 scenario="Unauthenticated" {
@@ -36,7 +36,7 @@ class PostLikeController extends Controller
     }
 
     /**
-     * show post total like
+     * show amount of post total like
      * 
      * @urlParam post integer required The ID of the post. emxample: 1
      * 
