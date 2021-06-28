@@ -578,12 +578,12 @@ fetch(url, {
 
 <pre><code class="language-bash">
 curl --request GET \
-    --get "http://localhost/api/comments/17/likes" \
+    --get "http://localhost/api/comments/1/likes" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"```</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/comments/17/likes"
+    "http://localhost/api/comments/1/likes"
 );
 
 let headers = {
@@ -665,12 +665,12 @@ fetch(url, {
 
 <pre><code class="language-bash">
 curl --request POST \
-    "http://localhost/api/comments/17/likes" \
+    "http://localhost/api/comments/19/likes" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"```</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/comments/17/likes"
+    "http://localhost/api/comments/19/likes"
 );
 
 let headers = {
@@ -874,13 +874,13 @@ fetch(url, {
 
 
 <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/comments/8" \
+    "http://localhost/api/comments/2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --data "{\"content\":\"quia\"}"</code></pre>
+    --data "{\"content\":\"non\"}"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/comments/8"
+    "http://localhost/api/comments/2"
 );
 
 let headers = {
@@ -889,7 +889,7 @@ let headers = {
 };
 
 let body = {
-    "content": "quia"
+    "content": "non"
 }
 
 fetch(url, {
@@ -1010,12 +1010,12 @@ fetch(url, {
 
 <pre><code class="language-bash">
 curl --request DELETE \
-    "http://localhost/api/comments/10" \
+    "http://localhost/api/comments/17" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"```</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/comments/10"
+    "http://localhost/api/comments/17"
 );
 
 let headers = {
@@ -1121,12 +1121,12 @@ fetch(url, {
 
 <pre><code class="language-bash">
 curl --request GET \
-    --get "http://localhost/api/comments/5" \
+    --get "http://localhost/api/comments/19" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"```</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/comments/5"
+    "http://localhost/api/comments/19"
 );
 
 let headers = {
@@ -1225,13 +1225,13 @@ fetch(url, {
 
 
 <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/posts/17/comments" \
+    "http://localhost/api/posts/10/comments" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --data "{\"comment\":\"fugiat\"}"</code></pre>
+    --data "{\"comment\":\"ut\"}"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/posts/17/comments"
+    "http://localhost/api/posts/10/comments"
 );
 
 let headers = {
@@ -1240,7 +1240,7 @@ let headers = {
 };
 
 let body = {
-    "comment": "fugiat"
+    "comment": "ut"
 }
 
 fetch(url, {
@@ -1344,12 +1344,12 @@ fetch(url, {
 
 <pre><code class="language-bash">
 curl --request GET \
-    --get "http://localhost/api/posts.comments/5" \
+    --get "http://localhost/api/posts.comments/2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"```</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/posts.comments/5"
+    "http://localhost/api/posts.comments/2"
 );
 
 let headers = {
@@ -1446,12 +1446,12 @@ fetch(url, {
 
 <pre><code class="language-bash">
 curl --request GET \
-    --get "http://localhost/api/posts/17/likes" \
+    --get "http://localhost/api/posts/20/likes" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"```</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/posts/17/likes"
+    "http://localhost/api/posts/20/likes"
 );
 
 let headers = {
@@ -1533,12 +1533,12 @@ fetch(url, {
 
 <pre><code class="language-bash">
 curl --request POST \
-    "http://localhost/api/posts/19/likes" \
+    "http://localhost/api/posts/3/likes" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"```</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/posts/19/likes"
+    "http://localhost/api/posts/3/likes"
 );
 
 let headers = {
@@ -1753,7 +1753,7 @@ fetch(url, {
     "http://localhost/api/posts" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --data "{\"post\":\"eos\"}"</code></pre>
+    --data "{\"post\":\"sit\"}"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/posts"
@@ -1765,7 +1765,7 @@ let headers = {
 };
 
 let body = {
-    "post": "eos"
+    "post": "sit"
 }
 
 fetch(url, {
@@ -1863,13 +1863,13 @@ fetch(url, {
 
 
 <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/posts/17" \
+    "http://localhost/api/posts/19" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --data "{\"content\":\"ducimus\"}"</code></pre>
+    --data "{\"content\":\"voluptate\"}"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/posts/17"
+    "http://localhost/api/posts/19"
 );
 
 let headers = {
@@ -1878,7 +1878,7 @@ let headers = {
 };
 
 let body = {
-    "content": "ducimus"
+    "content": "voluptate"
 }
 
 fetch(url, {
@@ -1998,12 +1998,12 @@ fetch(url, {
 
 <pre><code class="language-bash">
 curl --request DELETE \
-    "http://localhost/api/posts/11" \
+    "http://localhost/api/posts/13" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"```</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/posts/11"
+    "http://localhost/api/posts/13"
 );
 
 let headers = {
@@ -2109,12 +2109,12 @@ fetch(url, {
 
 <pre><code class="language-bash">
 curl --request GET \
-    --get "http://localhost/api/posts/2" \
+    --get "http://localhost/api/posts/7" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"```</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/posts/2"
+    "http://localhost/api/posts/7"
 );
 
 let headers = {
@@ -2145,9 +2145,9 @@ fetch(url, {
         </blockquote>
                 <pre>
                 <code class="language-json">
-
 {
     &quot;message&quot;: &quot;Unauthenticated.&quot;
+}
  </code>
         </pre>
     <div id="execution-results-GETapi-posts--id-" hidden>

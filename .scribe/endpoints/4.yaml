@@ -17,7 +17,7 @@ endpoints:
         name: post
         description: 'The ID of the post. emxample: 1'
         required: true
-        example: 17
+        example: 20
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -48,7 +48,7 @@ endpoints:
         name: post
         description: 'The ID of the post. emxample: 1'
         required: true
-        example: 19
+        example: 3
         type: integer
     queryParameters: []
     bodyParameters: []

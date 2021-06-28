@@ -53,7 +53,7 @@ endpoints:
         name: id
         description: 'The ID of the comment.'
         required: true
-        example: 8
+        example: 2
         type: integer
     queryParameters: []
     bodyParameters:
@@ -61,7 +61,7 @@ endpoints:
         name: content
         description: 'require the content of the post. Emxample: Update a comment.'
         required: false
-        example: quia
+        example: non
         type: string
     responses:
       -
@@ -108,7 +108,7 @@ endpoints:
         name: id
         description: 'The ID of the comment.'
         required: true
-        example: 10
+        example: 17
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -154,7 +154,7 @@ endpoints:
         name: id
         description: 'The ID of the comment.'
         required: true
-        example: 5
+        example: 19
         type: integer
     queryParameters: []
     bodyParameters: []

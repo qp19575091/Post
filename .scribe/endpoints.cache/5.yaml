@@ -62,7 +62,7 @@ endpoints:
         name: post
         description: 'the content of the user. emxample: This is a post'
         required: true
-        example: eos
+        example: sit
         type: string
     responses:
       -
@@ -101,7 +101,7 @@ endpoints:
         name: id
         description: 'The ID of the post.'
         required: true
-        example: 17
+        example: 19
         type: integer
     queryParameters: []
     bodyParameters:
@@ -109,7 +109,7 @@ endpoints:
         name: content
         description: 'require the content of the post. Emxample: Update a post.'
         required: false
-        example: ducimus
+        example: voluptate
         type: string
     responses:
       -
@@ -155,7 +155,7 @@ endpoints:
         name: id
         description: 'The ID of the post.'
         required: true
-        example: 11
+        example: 13
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -201,7 +201,7 @@ endpoints:
         name: id
         description: 'The ID of the post.'
         required: true
-        example: 2
+        example: 7
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -221,6 +221,7 @@ endpoints:
         content: |-
           {
               "message": "Unauthenticated."
+          }
         headers: []
         description: '401, Unauthenticated'
     responseFields: []

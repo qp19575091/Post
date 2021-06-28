@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api;
 
@@ -47,8 +46,6 @@ Route::middleware('auth:api')->group(function () {
 Route::post('register', [Api\UserController::class, 'register']);
 //user login
 Route::post('login', [Api\UserController::class, 'login']);
-
-
 
 //posts resource
 Route::apiresource('posts', Api\PostController::class)->only('index', 'show');

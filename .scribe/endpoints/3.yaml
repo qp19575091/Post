@@ -17,7 +17,7 @@ endpoints:
         name: post
         description: 'The ID of the post. emxample: 1'
         required: true
-        example: 17
+        example: 10
         type: integer
     queryParameters: []
     bodyParameters:
@@ -25,7 +25,7 @@ endpoints:
         name: comment
         description: 'the content of the user. emxample: This is a comment'
         required: true
-        example: fugiat
+        example: ut
         type: string
     responses:
       -
@@ -64,7 +64,7 @@ endpoints:
         name: post
         description: 'The ID of the post. emxample: 1'
         required: true
-        example: 5
+        example: 2
         type: integer
     queryParameters: []
     bodyParameters: []

@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
-
 /**
  * @group Post endpoint
  */
@@ -80,7 +79,7 @@ class PostController extends Controller
      *
      * @response status=401 scenario="Unauthenticated" {
      *     "message": "Unauthenticated."
-     * 
+     * }
      */
     public function show(Post $post)
     {

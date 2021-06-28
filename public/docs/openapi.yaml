@@ -317,7 +317,7 @@ paths:
         in: path
         name: comment
         description: 'The ID of the comment. emxample: 1'
-        example: 17
+        example: 1
         required: true
         schema:
           type: integer
@@ -407,7 +407,7 @@ paths:
                 content:
                   type: string
                   description: 'require the content of the post. Emxample: Update a comment.'
-                  example: quia
+                  example: non
     delete:
       summary: 'delete auth''s comment by himself'
       description: ''
@@ -492,7 +492,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the comment.'
-        example: 8
+        example: 2
         required: true
         schema:
           type: integer
@@ -554,7 +554,7 @@ paths:
                 comment:
                   type: string
                   description: 'the content of the user. emxample: This is a comment'
-                  example: fugiat
+                  example: ut
               required:
                 - comment
     parameters:
@@ -562,7 +562,7 @@ paths:
         in: path
         name: post
         description: 'The ID of the post. emxample: 1'
-        example: 17
+        example: 10
         required: true
         schema:
           type: integer
@@ -601,7 +601,7 @@ paths:
         in: path
         name: post
         description: 'The ID of the post. emxample: 1'
-        example: 5
+        example: 2
         required: true
         schema:
           type: integer
@@ -686,7 +686,7 @@ paths:
         in: path
         name: post
         description: 'The ID of the post. emxample: 1'
-        example: 17
+        example: 20
         required: true
         schema:
           type: integer
@@ -778,7 +778,7 @@ paths:
                 post:
                   type: string
                   description: 'the content of the user. emxample: This is a post'
-                  example: eos
+                  example: sit
               required:
                 - post
   '/api/posts/{id}':
@@ -837,7 +837,7 @@ paths:
                 content:
                   type: string
                   description: 'require the content of the post. Emxample: Update a post.'
-                  example: ducimus
+                  example: voluptate
     delete:
       summary: 'delete auth''s post by himself'
       description: ''
@@ -910,10 +910,13 @@ paths:
         401:
           description: '401, Unauthenticated'
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
-                example: "{\n    \"message\": \"Unauthenticated.\""
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message: { type: string, example: Unauthenticated. }
       tags:
         - 'Post endpoint'
       security: []
@@ -922,7 +925,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the post.'
-        example: 17
+        example: 19
         required: true
         schema:
           type: integer
@@ -970,7 +973,7 @@ paths:
         in: path
         name: user
         description: 'The ID of the user. emxample: 1'
-        example: 18
+        example: 6
         required: true
         schema:
           type: integer
@@ -1018,7 +1021,7 @@ paths:
         in: path
         name: user
         description: 'The ID of the user. emxample: 1'
-        example: 18
+        example: 8
         required: true
         schema:
           type: integer

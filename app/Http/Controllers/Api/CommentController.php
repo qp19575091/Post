@@ -6,9 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CommentResource;
 use App\Models\Comment;
-use App\Models\Post;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
 
 /**
  * @group Comment endpoint
@@ -41,7 +39,10 @@ class CommentController extends Controller
      */
     public function index()
     {
-        return CommentResource::collection(Comment::get());
+        Redis::get('comment') ??
+        Redis::set('comment', json_encode(CommentResource::collection(Comment::get())));
+        $comment = Redis::get('comment');
+        return json_decode($comment);
     }
 
 
@@ -94,13 +95,12 @@ class CommentController extends Controller
     {
         $comment = Comment::where('id', $comment->id)->where('user_id', auth()->user()->id)->first();
 
-        if($comment){
+        if ($comment) {
             $comment->update(['content' => $request->content]);
             return new CommentResource($comment);
         }
 
         return response()->json(['message' => 'No Permission'], 403);
-        
     }
 
     /**

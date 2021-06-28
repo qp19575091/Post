@@ -3,6 +3,7 @@
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
+use App\Logging\SimpleFormatter;
 
 return [
 
@@ -17,7 +18,7 @@ return [
     |
     */
 
-    'default' => env('LOG_CHANNEL', 'stack'),
+    'default' => env('LOG_CHANNEL', 'daily'),
 
     /*
     |--------------------------------------------------------------------------
@@ -37,7 +38,7 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single'],
+            'channels' => ['syslog', 'slack'],
             'ignore_exceptions' => false,
         ],
 
@@ -60,6 +61,7 @@ return [
             'username' => 'Laravel Log',
             'emoji' => ':boom:',
             'level' => 'critical',
+            'path' => storage_path('logs/slack.log'),
         ],
 
         'papertrail' => [
@@ -99,6 +101,13 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'abuse' => [
+            'driver' => 'single',
+            'tap' => [SimpleFormatter::class],
+            'path' => storage_path('logs/abuse.log'),
+            'level' => 'debug',
+        ]
     ],
 
 ];

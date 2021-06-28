@@ -13,10 +13,8 @@ use Illuminate\Http\Response;
 /**
  * @group Auth endpoints
  */
-
 class UserController extends Controller
 {
-
     /**
      * Handle a registration request for the application.
      * 
@@ -60,12 +58,12 @@ class UserController extends Controller
      */
     public function register(UserRequest $request)
     {
-        $user = User::create([
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
-
+        
         return response()->json([
             'message' => 'Account has been created',
         ], 200);
@@ -147,10 +145,6 @@ class UserController extends Controller
     {
         Auth::logout();
         return response()->json(['message' => 'Success.'], 204);
-
-        //return response()->json(['message' => 'Unauthenticated.'], 401);
-
-        // $user = auth()->user();
 
         // try {
         //     if (!$user = JWTAuth::parseToken()->authenticate()) {

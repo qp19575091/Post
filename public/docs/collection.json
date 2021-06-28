@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "0a6ddabf-d17b-4e69-90f7-09a0d2db81f1",
+        "_postman_id": "498ff532-44aa-4ae4-8a34-75161e3679ce",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -224,7 +224,7 @@
                                 {
                                     "id": "comment",
                                     "key": "comment",
-                                    "value": "17",
+                                    "value": "1",
                                     "description": "The ID of the comment. emxample: 1"
                                 }
                             ]
@@ -268,7 +268,7 @@
                                 {
                                     "id": "comment",
                                     "key": "comment",
-                                    "value": "17",
+                                    "value": "19",
                                     "description": "The ID of the comment. emxample: 1"
                                 }
                             ]
@@ -363,7 +363,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "8",
+                                    "value": "2",
                                     "description": "The ID of the comment."
                                 }
                             ]
@@ -381,7 +381,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"content\":\"quia\"}"
+                            "raw": "{\"content\":\"non\"}"
                         },
                         "description": ""
                     },
@@ -419,7 +419,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "10",
+                                    "value": "17",
                                     "description": "The ID of the comment."
                                 }
                             ]
@@ -472,7 +472,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "5",
+                                    "value": "19",
                                     "description": "The ID of the comment."
                                 }
                             ]
@@ -528,7 +528,7 @@
                                 {
                                     "id": "post",
                                     "key": "post",
-                                    "value": "17",
+                                    "value": "10",
                                     "description": "The ID of the post. emxample: 1"
                                 }
                             ]
@@ -546,7 +546,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"comment\":\"fugiat\"}"
+                            "raw": "{\"comment\":\"ut\"}"
                         },
                         "description": ""
                     },
@@ -578,7 +578,7 @@
                                 {
                                     "id": "post",
                                     "key": "post",
-                                    "value": "5",
+                                    "value": "2",
                                     "description": "The ID of the post. emxample: 1"
                                 }
                             ]
@@ -628,7 +628,7 @@
                                 {
                                     "id": "post",
                                     "key": "post",
-                                    "value": "17",
+                                    "value": "20",
                                     "description": "The ID of the post. emxample: 1"
                                 }
                             ]
@@ -672,7 +672,7 @@
                                 {
                                     "id": "post",
                                     "key": "post",
-                                    "value": "19",
+                                    "value": "3",
                                     "description": "The ID of the post. emxample: 1"
                                 }
                             ]
@@ -783,7 +783,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"post\":\"eos\"}"
+                            "raw": "{\"post\":\"sit\"}"
                         },
                         "description": ""
                     },
@@ -815,7 +815,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "17",
+                                    "value": "19",
                                     "description": "The ID of the post."
                                 }
                             ]
@@ -833,7 +833,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"content\":\"ducimus\"}"
+                            "raw": "{\"content\":\"voluptate\"}"
                         },
                         "description": ""
                     },
@@ -871,7 +871,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "11",
+                                    "value": "13",
                                     "description": "The ID of the post."
                                 }
                             ]
@@ -924,7 +924,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "2",
+                                    "value": "7",
                                     "description": "The ID of the post."
                                 }
                             ]
@@ -956,7 +956,7 @@
                         {
                             "header": [],
                             "code": 401,
-                            "body": "{\n    \"message\": \"Unauthenticated.\"",
+                            "body": "{\n    \"message\": \"Unauthenticated.\"\n}",
                             "name": "401, Unauthenticated"
                         }
                     ]
@@ -980,7 +980,7 @@
                                 {
                                     "id": "user",
                                     "key": "user",
-                                    "value": "18",
+                                    "value": "6",
                                     "description": "The ID of the user. emxample: 1"
                                 }
                             ]
@@ -1033,7 +1033,7 @@
                                 {
                                     "id": "user",
                                     "key": "user",
-                                    "value": "18",
+                                    "value": "8",
                                     "description": "The ID of the user. emxample: 1"
                                 }
                             ]
