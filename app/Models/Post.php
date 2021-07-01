@@ -5,10 +5,11 @@ namespace App\Models;
 use App\Concern\Likeable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
-    use HasFactory, Likeable;
+    use HasFactory, Likeable, SoftDeletes;
 
     protected $fillable = ['content', 'user_id'];
 

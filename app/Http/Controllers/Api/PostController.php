@@ -141,7 +141,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post = Post::where('id', $post->id)->where('user_id', auth()->user()->id)->first();
-
+        
         if ($post) {
             $post->delete();
             return response()->noContent();
