@@ -7,6 +7,7 @@ use App\Http\Resources\CommentResource;
 use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * @group PostComment endpoint
@@ -34,10 +35,9 @@ class PostCommentController extends Controller
      */
     public function store(Request $request, Post $post)
     {
-        $comment = Comment::create([
-            'content' => $request->content,
-            'user_id' => auth()->user()->id,
+        $comment = Auth::user()->comments()->create([
             'post_id' => $post->id,
+            'content' => $request->content
         ]);
 
         return response()->json(new CommentResource($comment), 200);

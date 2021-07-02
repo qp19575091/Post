@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PostRequest;
 use App\Http\Resources\PostResource;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
+
 /**
  * @group Post endpoint
  */
@@ -108,12 +111,12 @@ class PostController extends Controller
      * }
      *
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
-        $post = Post::where('id', $post->id)->where('user_id', auth()->user()->id)->first();
+        $post = Post::where('id', $post->id)->where('user_id', auth()->user()->id)->firstorfail();
 
         if ($post) {
-            $post->update(['content' => $request->content]);
+            $post->update($request->validated());
             return new PostResource($post);
         }
 
