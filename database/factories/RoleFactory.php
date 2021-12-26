@@ -2,17 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Post;
+use App\Models\Role;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PostFactory extends Factory
+ini_set('memory_limit', -1);
+class RoleFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Post::class;
+    protected $model = Role::class;
 
     /**
      * Define the model's default state.
@@ -22,8 +23,7 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'content' => $this->faker->text(20),
-            // 'user_id' => $this->faker->numberBetween(1, 10),
+            'name' => 'user',
         ];
     }
 }
