@@ -6,6 +6,7 @@ use App\Concern\Likeable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Tymon\JWTAuth\Contracts\Providers\JWT;
 
 class Post extends Model
 {
@@ -13,9 +14,14 @@ class Post extends Model
 
     protected $fillable = ['content', 'user_id'];
 
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d',
+        'updated_at' => 'datetime:Y-m-d',
+    ];
+    
     public function users()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id'); 
     }
 
     public function comments()

@@ -23,7 +23,6 @@ class PostFactory extends Factory
     {
         return [
             'content' => $this->faker->text(20),
-            // 'user_id' => $this->faker->numberBetween(1, 10),
         ];
     }
 }

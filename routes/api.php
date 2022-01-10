@@ -18,7 +18,15 @@ use App\Http\Controllers\Api;
 //     return $request->user();
 // });
 
-Route::middleware('auth:api')->group(function () {
+Route::group(['middleware' => 'auth:api'], function(){
+    Route::group(['middleware' => 'role:user', 'prefix' => 'user'], function(){
+
+    } );
+
+    Route::group(['middleware' => 'role:admin', 'prefix' => 'admin'], function(){
+        // Route::apiresource('posts', Api\Admin\PostController::class);
+    } );
+
     //get auth user posts
     Route::get('users.posts', [Api\UserPostController::class, 'post']);
     //get auth user comments

@@ -9,11 +9,13 @@ use App\Http\Resources\PostResource;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 
+
 /**
  * @group Post endpoint
  */
 class PostController extends Controller
 {
+
     /**
      * response all posts
      * 
@@ -39,7 +41,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return PostResource::collection(Post::get());
+        return PostResource::collection(Post::with('users')->latest()->simplepaginate(10));
     }
 
     /**
@@ -66,9 +68,9 @@ class PostController extends Controller
             'user_id' => auth()->user()->id,
             'content' => $request->content,
         ]);
-        return response()->json(new PostResource($post), 200);
+        return response()->json(new PostResource($post), 201);
     }
-
+            
     /**
      * response specified post
      *
@@ -113,14 +115,8 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, Post $post)
     {
-        $post = Post::where('id', $post->id)->where('user_id', auth()->user()->id)->firstorfail();
-
-        if ($post) {
-            $post->update($request->validated());
-            return new PostResource($post);
-        }
-
-        return response()->json(['message' => 'No Permission'], 403);
+        $post->update($request->validated());
+        return new PostResource($post);
     }
 
     /**
@@ -143,12 +139,13 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $post = Post::where('id', $post->id)->where('user_id', auth()->user()->id)->first();
-        
-        if ($post) {
-            $post->delete();
-            return response()->noContent();
-        }
-        return response()->json(['message' => 'No Permission'], 403);
+        $post->delete();
+
+        return response()->noContent();
+    }
+
+    public function __construct()
+    {
+        $this->authorizeResource(Post::class);
     }
 }
