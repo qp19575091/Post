@@ -63,7 +63,7 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
-        
+
         return response()->json([
             'message' => 'Account has been created',
         ], 200);
@@ -160,7 +160,6 @@ class UserController extends Controller
         // return response()->json(['message' => 'Success.'], 204);
     }
 
-
     /**
      * Shows authenticated user information
      * 
@@ -182,5 +181,44 @@ class UserController extends Controller
     public function index()
     {
         return response()->json(auth()->user(), 200);
+    }
+
+    /**
+     * User can follow another user and 1 notification. If has followed will cancal the follow
+     */
+    public function follow(Request $request)
+    {
+        $user = auth()->user();
+
+        if($request->user_id == $user->id) {
+            return;
+        }
+
+        if ($user->following->contains($request->user_id)) {
+            $user->following()->detach($request->user_id);
+        } else {
+            $user->following()->attach($request->user_id);
+
+            // send notification
+        }
+    }
+
+    /**
+     * Get the user's follower
+     */
+    public function follower(Request $request)
+    {
+        $user = User::findorfail($request->user_id);
+        
+        $user->followers()->get();
+    }
+
+    /**
+     * Get the user's following
+     */
+    public function following(Request $request)
+    {
+        $user = User::findorfail($request->user_id);
+        auth()->user()->following;
     }
 }

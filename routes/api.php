@@ -18,14 +18,20 @@ use App\Http\Controllers\Api;
 //     return $request->user();
 // });
 
-Route::group(['middleware' => 'auth:api'], function(){
-    Route::group(['middleware' => 'role:user', 'prefix' => 'user'], function(){
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::group(['middleware' => 'role:user', 'prefix' => 'user'], function () {
+    });
 
-    } );
-
-    Route::group(['middleware' => 'role:admin', 'prefix' => 'admin'], function(){
+    Route::group(['middleware' => 'role:admin', 'prefix' => 'admin'], function () {
         // Route::apiresource('posts', Api\Admin\PostController::class);
-    } );
+    });
+
+    //get user's following
+    Route::get('users.following', [Api\UserController::class, 'following']);
+    //get user's follower
+    Route::get('users.followers', [Api\UserController::class, 'follower']);
+    //user can follow
+    Route::post('users.follow', [Api\UserController::class, 'follow']);
 
     //get auth user posts
     Route::get('users.posts', [Api\UserPostController::class, 'post']);

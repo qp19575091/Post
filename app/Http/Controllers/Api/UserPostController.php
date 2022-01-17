@@ -41,7 +41,7 @@ class UserPostController extends Controller
         $user = User::where('id', auth()->user()->id)->first();
 
         if ($user) {
-            $posts = $user->posts()->get();
+            $posts = $user->posts()->latest()->paginate(20);
             return PostResource::collection($posts);;
         }
     }
