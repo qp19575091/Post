@@ -73,3 +73,8 @@ Route::get('posts.comments/{post}', [Api\PostCommentController::class, 'showPost
 Route::get('posts/{post}/likes', [Api\PostLikeController::class, 'sum']);
 //get total likes of comment
 Route::get('comments/{comment}/likes', [Api\CommentLikeController::class, 'sum']);
+
+//search 
+Route::get('dashboard/users', [Api\HomeController::class, 'SearchUser']);
+Route::get('dashboard/comments', [Api\HomeController::class, 'SearchComment']);
+Route::get('dashboard/posts', [Api\HomeController::class, 'SearchPost']);

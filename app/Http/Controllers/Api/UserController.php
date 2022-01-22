@@ -174,12 +174,14 @@ class UserController extends Controller
      *     "updated_at": "2020-05-25T06:21:47.000000Z"
      * }
      * 
+     * 
      * @response status=401 scenario="Unauthenticated" {
      *     "message": "Unauthenticated."
      * }
      */
     public function index()
     {
+
         return response()->json(auth()->user(), 200);
     }
 
@@ -190,7 +192,7 @@ class UserController extends Controller
     {
         $user = auth()->user();
 
-        if($request->user_id == $user->id) {
+        if ($request->user_id == $user->id) {
             return;
         }
 
@@ -198,9 +200,9 @@ class UserController extends Controller
             $user->following()->detach($request->user_id);
         } else {
             $user->following()->attach($request->user_id);
-
             // send notification
         }
+        return response()->noContent();
     }
 
     /**
@@ -209,8 +211,8 @@ class UserController extends Controller
     public function follower(Request $request)
     {
         $user = User::findorfail($request->user_id);
-        
-        $user->followers()->get();
+
+        return $user->followers()->orderby('name')->get();
     }
 
     /**
@@ -219,6 +221,7 @@ class UserController extends Controller
     public function following(Request $request)
     {
         $user = User::findorfail($request->user_id);
-        auth()->user()->following;
+        return $request->getClientIp();
+        return $user->following()->orderby('name')->get();
     }
 }

@@ -13,6 +13,12 @@ class Comment extends Model
 
     protected $fillable = ['content', 'post_id', 'user_id'];
 
+    public function scopeSearch($query, $key)
+    {
+        return $query->Where('content', 'like', "%{$key}%")
+            ->orderBy('created_at', 'desc');
+    }
+
     public function posts()
     {
         return $this->belongsTo(Post::class, 'post_id', 'id');

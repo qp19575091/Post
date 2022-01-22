@@ -18,10 +18,16 @@ class Post extends Model
         'created_at' => 'datetime:Y-m-d',
         'updated_at' => 'datetime:Y-m-d',
     ];
-    
+
+    public function scopeSearch($query, $key)
+    {
+        return $query->Where('content', 'like', "%{$key}%")
+            ->orderBy('created_at', 'desc');
+    }
+
     public function users()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id'); 
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function comments()

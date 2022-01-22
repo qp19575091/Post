@@ -43,6 +43,12 @@ class User extends Authenticatable implements JWTSubject
         'email_verified_at' => 'datetime',
     ];
 
+    public function scopeSearch($query, $key)
+    {
+        return $query->Where('name', 'like', "%{$key}%")
+            ->orderBy('created_at', 'desc');
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class);
@@ -60,12 +66,12 @@ class User extends Authenticatable implements JWTSubject
 
     public function followers()
     {
-        return $this->belongsToMany(User::class, 'user_follower', 'following_id', 'follower_id');
+        return $this->belongsToMany(User::class, 'user_follower', 'following_id', 'follower_id')->withTimestamps();
     }
 
     public function following()
     {
-        return $this->belongsToMany(User::class, 'user_follower', 'follower_id', 'following_id');
+        return $this->belongsToMany(User::class, 'user_follower', 'follower_id', 'following_id')->withTimestamps();
     }
 
     public function getJWTCustomClaims()
