@@ -1,43 +1,12 @@
-name: 'PostLike endpoint'
+name: 'PostComment endpoint'
 description: ''
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: 'api/posts/{post}/likes'
-    metadata:
-      title: 'show amount of post total like'
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      post:
-        name: post
-        description: 'The ID of the post. emxample: 1'
-        required: true
-        example: 20
-        type: integer
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 200
-        content: |-
-          {
-              "number of the post like": 100,
-              "message": "Success"
-          }
-        headers: []
-        description: '200'
-    responseFields: []
-  -
-    httpMethods:
       - POST
-    uri: 'api/posts/{post}/likes'
+    uri: 'api/posts/{post}/comments'
     metadata:
-      title: 'create or destroy post like'
+      title: 'create comments by users'
       description: ''
       authenticated: true
     headers:
@@ -48,24 +17,25 @@ endpoints:
         name: post
         description: 'The ID of the post. emxample: 1'
         required: true
-        example: 3
+        example: 5
         type: integer
     queryParameters: []
-    bodyParameters: []
+    bodyParameters:
+      comment:
+        name: comment
+        description: 'the content of the user. emxample: This is a comment'
+        required: true
+        example: at
+        type: string
     responses:
       -
         status: 200
         content: |-
           {
-              "message":"Success. Has been like"
-          }
-        headers: []
-        description: '200'
-      -
-        status: 200
-        content: |-
-          {
-              "message":"Success. Has been cancel like"
+              "id": 1010,
+              "content": "This is a comment",
+              "user_id": 1,
+              "post_id": 1
           }
         headers: []
         description: '200'
@@ -77,4 +47,45 @@ endpoints:
           }
         headers: []
         description: '401, Unauthenticated'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/posts.comments/{post}'
+    metadata:
+      title: 'response all comments of specified post'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      post:
+        name: post
+        description: 'The ID of the post. emxample: 1'
+        required: true
+        example: 2
+        type: integer
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+              {
+                  "id": 10,
+                  "content": "Aliquam vel modi.",
+                  "user_id": 3,
+                  "post_id": 4
+              },
+              {
+                  "id": 69,
+                  "content": "Et perspiciatis.",
+                  "user_id": 1,
+                  "post_id": 4
+              }
+          }
+        headers: []
+        description: '200'
     responseFields: []

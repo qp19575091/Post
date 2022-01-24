@@ -1,12 +1,12 @@
-name: 'UserPost endpoint'
+name: 'UserComment endpoint'
 description: ''
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/users.posts
+    uri: api/users.comments
     metadata:
-      title: 'response all posts of specified user'
+      title: 'response all comments of auth user'
       description: ''
       authenticated: true
     headers:
@@ -17,7 +17,7 @@ endpoints:
         name: user
         description: 'The ID of the user. emxample: 1'
         required: true
-        example: 8
+        example: 15
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -27,14 +27,16 @@ endpoints:
         content: |-
           {
               {
-                  "id": 1,
+                  "id": 27,
+                  "post_id": 3,
                   "user_id": 1,
-                  "content": "Consectetur.",
+                  "comment": "Illo optio non.",
               },
               {
-                  "id": 2,
+                  "id": 29,
+                  "post_id": 5,
                   "user_id": 1,
-                  "content": "Voluptate ullam.",
+                  "comment": "Suscipit sunt animi.",
               },
           }
         headers: []

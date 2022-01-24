@@ -26,10 +26,7 @@ Route::group(['middleware' => 'auth:api'], function () {
         // Route::apiresource('posts', Api\Admin\PostController::class);
     });
 
-    //get user's following
-    Route::get('users.following', [Api\UserController::class, 'following']);
-    //get user's follower
-    Route::get('users.followers', [Api\UserController::class, 'follower']);
+    
     //user can follow
     Route::post('users.follow', [Api\UserController::class, 'follow']);
 
@@ -78,3 +75,7 @@ Route::get('comments/{comment}/likes', [Api\CommentLikeController::class, 'sum']
 Route::get('dashboard/users', [Api\HomeController::class, 'SearchUser']);
 Route::get('dashboard/comments', [Api\HomeController::class, 'SearchComment']);
 Route::get('dashboard/posts', [Api\HomeController::class, 'SearchPost']);
+//get user's following
+Route::get('users.following', [Api\UserController::class, 'following']);
+//get user's follower
+Route::get('users.followers', [Api\UserController::class, 'follower']);

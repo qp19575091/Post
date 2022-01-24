@@ -187,6 +187,13 @@ class UserController extends Controller
 
     /**
      * User can follow another user and 1 notification. If has followed will cancal the follow
+     * 
+     * @authenticated
+     * 
+     * @response status=204 {
+     * 
+     * }
+     * 
      */
     public function follow(Request $request)
     {
@@ -207,6 +214,17 @@ class UserController extends Controller
 
     /**
      * Get the user's follower
+     * 
+     * @bodyParam user_id user_id required The id of the user. Example: demo@demo.com
+     * 
+     *  @response 200 {
+     *     "id": 2,
+     *     "name": "Demo",
+     *     "email": "demo@demo.com",
+     *     "email_verified_at": null,
+     *     "created_at": "2020-05-25T06:21:47.000000Z",
+     *     "updated_at": "2020-05-25T06:21:47.000000Z"
+     * }
      */
     public function follower(Request $request)
     {
@@ -217,11 +235,22 @@ class UserController extends Controller
 
     /**
      * Get the user's following
+     * 
+     * @bodyParam user_id user_id required The id of the user. Example: demo@demo.com
+     * 
+     * @response 200 {
+     *     "id": 2,
+     *     "name": "Demo",
+     *     "email": "demo@demo.com",
+     *     "email_verified_at": null,
+     *     "created_at": "2020-05-25T06:21:47.000000Z",
+     *     "updated_at": "2020-05-25T06:21:47.000000Z"
+     * }
      */
     public function following(Request $request)
     {
         $user = User::findorfail($request->user_id);
-        return $request->getClientIp();
+        
         return $user->following()->orderby('name')->get();
     }
 }

@@ -19,7 +19,7 @@ endpoints:
         name: comment
         description: 'The ID of the comment. emxample: 1'
         required: true
-        example: 1
+        example: 17
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -50,7 +50,7 @@ endpoints:
         name: comment
         description: 'The ID of the comment. emxample: 1'
         required: true
-        example: 19
+        example: 11
         type: integer
     queryParameters: []
     bodyParameters: []

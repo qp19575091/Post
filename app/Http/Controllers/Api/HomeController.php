@@ -11,6 +11,9 @@ use Illuminate\Http\Request;
 use Redis;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * @group Home endpoints
+ */
 class HomeController extends Controller
 {
     public $key;
@@ -24,9 +27,16 @@ class HomeController extends Controller
     /**
      * Search the Users by keyword.
      *
-     * @param Request $request
+     * @bodyParam key key required The key of the username. Example: Jack
      *
-     * @return mixed
+     * @response 200 {
+     *     "id": 2,
+     *     "name": "Demo",
+     *     "email": "demo@demo.com",
+     *     "email_verified_at": null,
+     *     "created_at": "2020-05-25T06:21:47.000000Z",
+     *     "updated_at": "2020-05-25T06:21:47.000000Z"
+     * }
      */
     public function searchUser()
     {
@@ -38,9 +48,15 @@ class HomeController extends Controller
     /**
      * Search the posts by keyword.
      *
-     * @param Request $request
+     * @bodyParam key key required The key of the posts content. Example: Jack
      *
-     * @return mixed
+     * @response 200 {
+     *     @response 200{
+     *     "id": 1,
+     *     "user_id": 1,
+     *     "content": "Update a comment.",
+     * }
+     * 
      */
     public function searchPost()
     {
@@ -52,9 +68,16 @@ class HomeController extends Controller
     /**
      * Search the comments by keyword.
      *
-     * @param Request $request
+     * @bodyParam key key required The key of the comments content. Example: Jack
      *
-     * @return mixed
+     * @response 200 {
+     *     @response 200{
+     *     "id": 1,
+     *     "post_id": 7,
+     *     "user_id": 1,
+     *     "content": "Update a comment.",
+     * }
+     * 
      */
     public function searchComment()
     {

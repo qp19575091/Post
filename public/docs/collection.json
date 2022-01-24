@@ -10,12 +10,126 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "498ff532-44aa-4ae4-8a34-75161e3679ce",
+        "_postman_id": "c86d2563-ee16-4731-8c4f-27dea1565fe5",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
-    "item": [
-        {
+    "item": {
+        "3": {
+            "name": "Home endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Search the Users by keyword.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/dashboard\/users",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/dashboard\/users"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"id\": 2,\n    \"name\": \"Demo\",\n    \"email\": \"demo@demo.com\",\n    \"email_verified_at\": null,\n    \"created_at\": \"2020-05-25T06:21:47.000000Z\",\n    \"updated_at\": \"2020-05-25T06:21:47.000000Z\"\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Search the comments by keyword.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/dashboard\/comments",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/dashboard\/comments"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    @response 200{\n    \"id\": 1,\n    \"post_id\": 7,\n    \"user_id\": 1,\n    \"content\": \"Update a comment.\",\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Search the posts by keyword.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/dashboard\/posts",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/dashboard\/posts"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    @response 200{\n    \"id\": 1,\n    \"user_id\": 1,\n    \"content\": \"Update a comment.\",\n}",
+                            "name": "200"
+                        }
+                    ]
+                }
+            ]
+        },
+        "0": {
             "name": "Auth endpoints",
             "description": "",
             "item": [
@@ -204,10 +318,128 @@
                             "name": "422, Validation error"
                         }
                     ]
+                },
+                {
+                    "name": "Get the user's following",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users.following",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/users.following"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n    \"id\": 2,\n    \"name\": \"Demo\",\n    \"email\": \"demo@demo.com\",\n    \"email_verified_at\": null,\n    \"created_at\": \"2020-05-25T06:21:47.000000Z\",\n    \"updated_at\": \"2020-05-25T06:21:47.000000Z\"\n}",
+                            "name": "200"
+                        }
+                    ]
+                },
+                {
+                    "name": "Get the user's follower",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users.followers",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/users.followers"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": null
+                        }
+                    ]
+                },
+                {
+                    "name": "User can follow another user and 1 notification. If has followed will cancal the follow",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users.follow",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/users.follow"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{\n\n}",
+                            "name": "204"
+                        }
+                    ]
                 }
             ]
         },
-        {
+        "1": {
             "name": "CommentLike endpoint",
             "description": "",
             "item": [
@@ -224,7 +456,7 @@
                                 {
                                     "id": "comment",
                                     "key": "comment",
-                                    "value": "1",
+                                    "value": "17",
                                     "description": "The ID of the comment. emxample: 1"
                                 }
                             ]
@@ -268,7 +500,7 @@
                                 {
                                     "id": "comment",
                                     "key": "comment",
-                                    "value": "19",
+                                    "value": "11",
                                     "description": "The ID of the comment. emxample: 1"
                                 }
                             ]
@@ -310,7 +542,7 @@
                 }
             ]
         },
-        {
+        "2": {
             "name": "Comment endpoint",
             "description": "",
             "item": [
@@ -363,7 +595,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "2",
+                                    "value": "8",
                                     "description": "The ID of the comment."
                                 }
                             ]
@@ -381,7 +613,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"content\":\"non\"}"
+                            "raw": "{\"content\":\"ut\"}"
                         },
                         "description": ""
                     },
@@ -419,7 +651,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "17",
+                                    "value": "12",
                                     "description": "The ID of the comment."
                                 }
                             ]
@@ -472,7 +704,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "19",
+                                    "value": "13",
                                     "description": "The ID of the comment."
                                 }
                             ]
@@ -511,7 +743,7 @@
                 }
             ]
         },
-        {
+        "4": {
             "name": "PostComment endpoint",
             "description": "",
             "item": [
@@ -528,7 +760,7 @@
                                 {
                                     "id": "post",
                                     "key": "post",
-                                    "value": "10",
+                                    "value": "5",
                                     "description": "The ID of the post. emxample: 1"
                                 }
                             ]
@@ -546,7 +778,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"comment\":\"ut\"}"
+                            "raw": "{\"comment\":\"at\"}"
                         },
                         "description": ""
                     },
@@ -611,7 +843,7 @@
                 }
             ]
         },
-        {
+        "5": {
             "name": "PostLike endpoint",
             "description": "",
             "item": [
@@ -628,7 +860,7 @@
                                 {
                                     "id": "post",
                                     "key": "post",
-                                    "value": "20",
+                                    "value": "4",
                                     "description": "The ID of the post. emxample: 1"
                                 }
                             ]
@@ -672,7 +904,7 @@
                                 {
                                     "id": "post",
                                     "key": "post",
-                                    "value": "3",
+                                    "value": "14",
                                     "description": "The ID of the post. emxample: 1"
                                 }
                             ]
@@ -714,7 +946,7 @@
                 }
             ]
         },
-        {
+        "6": {
             "name": "Post endpoint",
             "description": "",
             "item": [
@@ -783,7 +1015,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"post\":\"sit\"}"
+                            "raw": "{\"post\":\"quam\"}"
                         },
                         "description": ""
                     },
@@ -833,7 +1065,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"content\":\"voluptate\"}"
+                            "raw": "{\"content\":\"voluptas\"}"
                         },
                         "description": ""
                     },
@@ -871,7 +1103,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "13",
+                                    "value": "3",
                                     "description": "The ID of the post."
                                 }
                             ]
@@ -924,7 +1156,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "7",
+                                    "value": "16",
                                     "description": "The ID of the post."
                                 }
                             ]
@@ -963,7 +1195,7 @@
                 }
             ]
         },
-        {
+        "7": {
             "name": "UserComment endpoint",
             "description": "",
             "item": [
@@ -980,7 +1212,7 @@
                                 {
                                     "id": "user",
                                     "key": "user",
-                                    "value": "6",
+                                    "value": "15",
                                     "description": "The ID of the user. emxample: 1"
                                 }
                             ]
@@ -1016,7 +1248,7 @@
                 }
             ]
         },
-        {
+        "8": {
             "name": "UserPost endpoint",
             "description": "",
             "item": [
@@ -1033,7 +1265,7 @@
                                 {
                                     "id": "user",
                                     "key": "user",
-                                    "value": "8",
+                                    "value": "10",
                                     "description": "The ID of the user. emxample: 1"
                                 }
                             ]
@@ -1069,7 +1301,7 @@
                 }
             ]
         }
-    ],
+    },
     "auth": {
         "type": "noauth"
     }

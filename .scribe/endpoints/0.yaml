@@ -1,117 +1,14 @@
-name: 'Auth endpoints'
+name: 'Home endpoints'
 description: ''
 endpoints:
   -
     httpMethods:
-      - POST
-    uri: api/login
+      - GET
+    uri: api/dashboard/users
     metadata:
-      title: 'Handle a login request to the application.'
+      title: 'Search the Users by keyword.'
       description: ''
       authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    queryParameters: []
-    bodyParameters:
-      email:
-        name: email
-        description: 'The email of the user.'
-        required: true
-        example: demo@demo.com
-        type: email
-      password:
-        name: password
-        description: 'The password of the user.'
-        required: true
-        example: password
-        type: password
-    responses:
-      -
-        status: 200
-        content: |-
-          {
-             "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjc
-                       uMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYyMzg5MzAyNCwiZXhwIjo
-                       xNjIzODk2NjI0LCJuYmYiOjE2MjM4OTMwMjQsImp0aSI6IndkTllaU3NoejlBZmt
-                       PRzgiLCJzdWIiOjExLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA
-                       4NzJkYjdhNTk3NmY3In0.eEMJuRcY5OgSD2l4jLhbcBKBA5QvCvkrPBn8ZzKyP38"
-          }
-        headers: []
-        description: '200'
-      -
-        status: 422
-        content: |-
-          {
-             "message": "The given data was invalid.",
-             "errors": {
-                 "name": [
-                     "The name field is required."
-              ],
-                 "password": [
-                     "The password field is required."
-              ]
-          }
-        headers: []
-        description: '422, Validation error'
-      -
-        status: 422
-        content: |-
-          {
-             "message": "The given data was invalid.",
-             "errors":  "The name or password field is wrong."
-          }
-        headers: []
-        description: '422, Validation error'
-    responseFields: []
-  -
-    httpMethods:
-      - POST
-    uri: api/logout
-    metadata:
-      title: 'Log the user out of the application.'
-      description: ''
-      authenticated: true
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 204
-        content: |-
-          "message": "Success."
-          }
-        headers: []
-        description: '204, {'
-      -
-        status: 401
-        content: |-
-          {
-              "message": "Unauthenticated."
-          }
-        headers: []
-        description: '401, Unauthenticated'
-      -
-        status: 500
-        content: |-
-          {
-              "message": "Server error."
-          }
-        headers: []
-        description: '500, Unauthenticated'
-    responseFields: []
-  -
-    httpMethods:
-      - GET
-    uri: api/users
-    metadata:
-      title: 'Shows authenticated user information'
-      description: ''
-      authenticated: true
     headers:
       Content-Type: application/json
       Accept: application/json
@@ -132,21 +29,13 @@ endpoints:
           }
         headers: []
         description: '200'
-      -
-        status: 401
-        content: |-
-          {
-              "message": "Unauthenticated."
-          }
-        headers: []
-        description: '401, Unauthenticated'
     responseFields: []
   -
     httpMethods:
-      - POST
-    uri: api/register
+      - GET
+    uri: api/dashboard/comments
     metadata:
-      title: 'Handle a registration request for the application.'
+      title: 'Search the comments by keyword.'
       description: ''
       authenticated: false
     headers:
@@ -154,73 +43,45 @@ endpoints:
       Accept: application/json
     urlParameters: []
     queryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'The name of the user.'
-        required: true
-        example: Demo
-        type: string
-      email:
-        name: email
-        description: 'The email of the user.'
-        required: true
-        example: demo@demo.com
-        type: email
-      password:
-        name: password
-        description: 'The password of the user.'
-        required: true
-        example: password
-        type: password
-      password_confirmation:
-        name: password_confirmation
-        description: 'The password confirmation of the user.'
-        required: true
-        example: password
-        type: password
+    bodyParameters: []
     responses:
       -
         status: 200
         content: |-
           {
-              "message": "Account has been created"
+              @response 200{
+              "id": 1,
+              "post_id": 7,
+              "user_id": 1,
+              "content": "Update a comment.",
           }
         headers: []
         description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/dashboard/posts
+    metadata:
+      title: 'Search the posts by keyword.'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
       -
-        status: 422
+        status: 200
         content: |-
           {
-             "message": "The given data was invalid.",
-             "errors": {
-                 "name": [
-                     "The name has already been taken."
-              ],
-                 "email": [
-                     "The email has already been taken."
-              ]
-             }
+              @response 200{
+              "id": 1,
+              "user_id": 1,
+              "content": "Update a comment.",
           }
         headers: []
-        description: '422, Validation error'
-      -
-        status: 422
-        content: |-
-          {
-             "message": "The given data was invalid.",
-             "errors": {
-                 "name": [
-                     "The name field is required."
-              ],
-                 "email": [
-                     "The email field is required."
-              ],
-                 "password": [
-                     "The password field is required."
-              ]
-             }
-          }
-        headers: []
-        description: '422, Validation error'
+        description: '200'
     responseFields: []

@@ -66,4 +66,10 @@ End Point | Description | Method | Auth |
 | [api/posts/{post}/likes](http://127.0.0.1:8000/api/posts/1/likes) | Can Like Posts  | POST | Yes |
 | [api/posts/{post}/likes](http://127.0.0.1:8000/api/posts/1/likes) | Show Specified Post Total Likes  | GET | No |
 | [api/comments/{comment}/likes](http://127.0.0.1:8000/api/comments/1/likes) | Can Like Comments  | POST | Yes |
-| [api/comments/{comment}/likes](http://127.0.0.1:8000/api/comments/1/likes) | Show Specified Comment Total Likes  | GET | No |
+| [api/users.follow](http://127.0.0.1:8000/api/users.follow) | User Can Follow Other User  | POST | Yes |
+| [api/users.following](http://127.0.0.1:8000/users.following) | Show User's Following  | GET | No |
+| [api/users.follower](http://127.0.0.1:8000/users.follower) | Show User's Follower | GET | No |
+| [api/dashboard/users](http://127.0.0.1:8000/api/dashboard/users) | Search The Users By Keyword.  | GET | No |
+| [api/dashboard/posts](http://127.0.0.1:8000/api/dashboard/posts) | Search The Posts By Keyword.  | GET | No |
+| [api/dashboard/comments](http://127.0.0.1:8000/api/dashboard/comments) | Search The Comments By Keyword.  | GET | No |
+

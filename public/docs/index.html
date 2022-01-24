@@ -50,7 +50,7 @@
                             <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: June 20 2021</li>
+            <li>Last updated: January 24 2022</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -67,6 +67,262 @@ You can switch the language used with the tabs at the top right (or from the nav
 
         <h1>Authenticating requests</h1>
 <p>This API is not authenticated.</p>
+
+        <h1 id="home-endpoints">Home endpoints</h1>
+    <p>
+        
+    </p>
+
+            <h2 id="home-endpoints-GETapi-dashboard-users">Search the Users by keyword.</h2>
+
+<p>
+</p>
+
+
+
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">
+curl --request GET \
+    --get "http://localhost/api/dashboard/users" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"```</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/dashboard/users"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+{
+    &quot;id&quot;: 2,
+    &quot;name&quot;: &quot;Demo&quot;,
+    &quot;email&quot;: &quot;demo@demo.com&quot;,
+    &quot;email_verified_at&quot;: null,
+    &quot;created_at&quot;: &quot;2020-05-25T06:21:47.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2020-05-25T06:21:47.000000Z&quot;
+}
+ </code>
+        </pre>
+    <div id="execution-results-GETapi-dashboard-users" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-dashboard-users"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-dashboard-users"></code></pre>
+</div>
+<div id="execution-error-GETapi-dashboard-users" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-dashboard-users"></code></pre>
+</div>
+<form id="form-GETapi-dashboard-users" data-method="GET"
+      data-path="api/dashboard/users"
+      data-authed="0"
+      data-hasfiles=""
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-dashboard-users', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-dashboard-users"
+                    onclick="tryItOut('GETapi-dashboard-users');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-dashboard-users"
+                    onclick="cancelTryOut('GETapi-dashboard-users');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-dashboard-users" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/dashboard/users</code></b>
+        </p>
+                    </form>
+
+            <h2 id="home-endpoints-GETapi-dashboard-comments">Search the comments by keyword.</h2>
+
+<p>
+</p>
+
+
+
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">
+curl --request GET \
+    --get "http://localhost/api/dashboard/comments" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"```</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/dashboard/comments"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    @response 200{
+    &quot;id&quot;: 1,
+    &quot;post_id&quot;: 7,
+    &quot;user_id&quot;: 1,
+    &quot;content&quot;: &quot;Update a comment.&quot;,
+}
+ </code>
+        </pre>
+    <div id="execution-results-GETapi-dashboard-comments" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-dashboard-comments"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-dashboard-comments"></code></pre>
+</div>
+<div id="execution-error-GETapi-dashboard-comments" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-dashboard-comments"></code></pre>
+</div>
+<form id="form-GETapi-dashboard-comments" data-method="GET"
+      data-path="api/dashboard/comments"
+      data-authed="0"
+      data-hasfiles=""
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-dashboard-comments', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-dashboard-comments"
+                    onclick="tryItOut('GETapi-dashboard-comments');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-dashboard-comments"
+                    onclick="cancelTryOut('GETapi-dashboard-comments');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-dashboard-comments" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/dashboard/comments</code></b>
+        </p>
+                    </form>
+
+            <h2 id="home-endpoints-GETapi-dashboard-posts">Search the posts by keyword.</h2>
+
+<p>
+</p>
+
+
+
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">
+curl --request GET \
+    --get "http://localhost/api/dashboard/posts" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"```</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/dashboard/posts"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+
+{
+    @response 200{
+    &quot;id&quot;: 1,
+    &quot;user_id&quot;: 1,
+    &quot;content&quot;: &quot;Update a comment.&quot;,
+}
+ </code>
+        </pre>
+    <div id="execution-results-GETapi-dashboard-posts" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-dashboard-posts"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-dashboard-posts"></code></pre>
+</div>
+<div id="execution-error-GETapi-dashboard-posts" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-dashboard-posts"></code></pre>
+</div>
+<form id="form-GETapi-dashboard-posts" data-method="GET"
+      data-path="api/dashboard/posts"
+      data-authed="0"
+      data-hasfiles=""
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-dashboard-posts', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-dashboard-posts"
+                    onclick="tryItOut('GETapi-dashboard-posts');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-dashboard-posts"
+                    onclick="cancelTryOut('GETapi-dashboard-posts');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-dashboard-posts" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/dashboard/posts</code></b>
+        </p>
+                    </form>
 
         <h1 id="auth-endpoints">Auth endpoints</h1>
     <p>
@@ -561,6 +817,265 @@ fetch(url, {
     
     </form>
 
+            <h2 id="auth-endpoints-GETapi-users.following">Get the user&#039;s following</h2>
+
+<p>
+</p>
+
+
+
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">
+curl --request GET \
+    --get "http://localhost/api/users.following" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"```</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/users.following"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+{
+    &quot;id&quot;: 2,
+    &quot;name&quot;: &quot;Demo&quot;,
+    &quot;email&quot;: &quot;demo@demo.com&quot;,
+    &quot;email_verified_at&quot;: null,
+    &quot;created_at&quot;: &quot;2020-05-25T06:21:47.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2020-05-25T06:21:47.000000Z&quot;
+}
+ </code>
+        </pre>
+    <div id="execution-results-GETapi-users.following" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-users.following"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-users.following"></code></pre>
+</div>
+<div id="execution-error-GETapi-users.following" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-users.following"></code></pre>
+</div>
+<form id="form-GETapi-users.following" data-method="GET"
+      data-path="api/users.following"
+      data-authed="0"
+      data-hasfiles=""
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-users.following', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-users.following"
+                    onclick="tryItOut('GETapi-users.following');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-users.following"
+                    onclick="cancelTryOut('GETapi-users.following');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-users.following" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/users.following</code></b>
+        </p>
+                    </form>
+
+            <h2 id="auth-endpoints-GETapi-users.followers">Get the user&#039;s follower</h2>
+
+<p>
+</p>
+
+
+
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">
+curl --request GET \
+    --get "http://localhost/api/users.followers" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"```</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/users.followers"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre>
+            <code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code>
+            </pre>
+        </details>         <pre>
+                <code class="language-json">
+{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}
+ </code>
+        </pre>
+    <div id="execution-results-GETapi-users.followers" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-users.followers"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-users.followers"></code></pre>
+</div>
+<div id="execution-error-GETapi-users.followers" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-users.followers"></code></pre>
+</div>
+<form id="form-GETapi-users.followers" data-method="GET"
+      data-path="api/users.followers"
+      data-authed="0"
+      data-hasfiles=""
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-users.followers', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-users.followers"
+                    onclick="tryItOut('GETapi-users.followers');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-users.followers"
+                    onclick="cancelTryOut('GETapi-users.followers');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-users.followers" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/users.followers</code></b>
+        </p>
+                    </form>
+
+            <h2 id="auth-endpoints-POSTapi-users.follow">User can follow another user and 1 notification. If has followed will cancal the follow</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<blockquote>Example request:</blockquote>
+
+
+<pre><code class="language-bash">
+curl --request POST \
+    "http://localhost/api/users.follow" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"```</code></pre>
+
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/users.follow"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+
+            <blockquote>
+            <p>Example response (204):</p>
+        </blockquote>
+                <pre>
+                <code class="language-json">
+[Empty response]
+ </code>
+        </pre>
+    <div id="execution-results-POSTapi-users.follow" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-users.follow"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-users.follow"></code></pre>
+</div>
+<div id="execution-error-POSTapi-users.follow" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-users.follow"></code></pre>
+</div>
+<form id="form-POSTapi-users.follow" data-method="POST"
+      data-path="api/users.follow"
+      data-authed="1"
+      data-hasfiles=""
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users.follow', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-users.follow"
+                    onclick="tryItOut('POSTapi-users.follow');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-users.follow"
+                    onclick="cancelTryOut('POSTapi-users.follow');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-users.follow" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/users.follow</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-users.follow" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-users.follow"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
         <h1 id="commentlike-endpoint">CommentLike endpoint</h1>
     <p>
         
@@ -578,12 +1093,12 @@ fetch(url, {
 
 <pre><code class="language-bash">
 curl --request GET \
-    --get "http://localhost/api/comments/1/likes" \
+    --get "http://localhost/api/comments/17/likes" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"```</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/comments/1/likes"
+    "http://localhost/api/comments/17/likes"
 );
 
 let headers = {
@@ -665,12 +1180,12 @@ fetch(url, {
 
 <pre><code class="language-bash">
 curl --request POST \
-    "http://localhost/api/comments/19/likes" \
+    "http://localhost/api/comments/11/likes" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"```</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/comments/19/likes"
+    "http://localhost/api/comments/11/likes"
 );
 
 let headers = {
@@ -874,13 +1389,13 @@ fetch(url, {
 
 
 <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/comments/2" \
+    "http://localhost/api/comments/8" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --data "{\"content\":\"non\"}"</code></pre>
+    --data "{\"content\":\"ut\"}"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/comments/2"
+    "http://localhost/api/comments/8"
 );
 
 let headers = {
@@ -889,7 +1404,7 @@ let headers = {
 };
 
 let body = {
-    "content": "non"
+    "content": "ut"
 }
 
 fetch(url, {
@@ -1010,12 +1525,12 @@ fetch(url, {
 
 <pre><code class="language-bash">
 curl --request DELETE \
-    "http://localhost/api/comments/17" \
+    "http://localhost/api/comments/12" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"```</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/comments/17"
+    "http://localhost/api/comments/12"
 );
 
 let headers = {
@@ -1121,12 +1636,12 @@ fetch(url, {
 
 <pre><code class="language-bash">
 curl --request GET \
-    --get "http://localhost/api/comments/19" \
+    --get "http://localhost/api/comments/13" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"```</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/comments/19"
+    "http://localhost/api/comments/13"
 );
 
 let headers = {
@@ -1225,13 +1740,13 @@ fetch(url, {
 
 
 <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/posts/10/comments" \
+    "http://localhost/api/posts/5/comments" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --data "{\"comment\":\"ut\"}"</code></pre>
+    --data "{\"comment\":\"at\"}"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/posts/10/comments"
+    "http://localhost/api/posts/5/comments"
 );
 
 let headers = {
@@ -1240,7 +1755,7 @@ let headers = {
 };
 
 let body = {
-    "comment": "ut"
+    "comment": "at"
 }
 
 fetch(url, {
@@ -1446,12 +1961,12 @@ fetch(url, {
 
 <pre><code class="language-bash">
 curl --request GET \
-    --get "http://localhost/api/posts/20/likes" \
+    --get "http://localhost/api/posts/4/likes" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"```</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/posts/20/likes"
+    "http://localhost/api/posts/4/likes"
 );
 
 let headers = {
@@ -1533,12 +2048,12 @@ fetch(url, {
 
 <pre><code class="language-bash">
 curl --request POST \
-    "http://localhost/api/posts/3/likes" \
+    "http://localhost/api/posts/14/likes" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"```</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/posts/3/likes"
+    "http://localhost/api/posts/14/likes"
 );
 
 let headers = {
@@ -1753,7 +2268,7 @@ fetch(url, {
     "http://localhost/api/posts" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --data "{\"post\":\"sit\"}"</code></pre>
+    --data "{\"post\":\"quam\"}"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/posts"
@@ -1765,7 +2280,7 @@ let headers = {
 };
 
 let body = {
-    "post": "sit"
+    "post": "quam"
 }
 
 fetch(url, {
@@ -1866,7 +2381,7 @@ fetch(url, {
     "http://localhost/api/posts/19" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --data "{\"content\":\"voluptate\"}"</code></pre>
+    --data "{\"content\":\"voluptas\"}"</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/posts/19"
@@ -1878,7 +2393,7 @@ let headers = {
 };
 
 let body = {
-    "content": "voluptate"
+    "content": "voluptas"
 }
 
 fetch(url, {
@@ -1998,12 +2513,12 @@ fetch(url, {
 
 <pre><code class="language-bash">
 curl --request DELETE \
-    "http://localhost/api/posts/13" \
+    "http://localhost/api/posts/3" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"```</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/posts/13"
+    "http://localhost/api/posts/3"
 );
 
 let headers = {
@@ -2109,12 +2624,12 @@ fetch(url, {
 
 <pre><code class="language-bash">
 curl --request GET \
-    --get "http://localhost/api/posts/7" \
+    --get "http://localhost/api/posts/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"```</code></pre>
 
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/posts/7"
+    "http://localhost/api/posts/16"
 );
 
 let headers = {

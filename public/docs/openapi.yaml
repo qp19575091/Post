@@ -7,6 +7,109 @@ servers:
   -
     url: 'http://localhost'
 paths:
+  /api/dashboard/users:
+    get:
+      summary: 'Search the Users by keyword.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 2
+                  name: Demo
+                  email: demo@demo.com
+                  email_verified_at: null
+                  created_at: '2020-05-25T06:21:47.000000Z'
+                  updated_at: '2020-05-25T06:21:47.000000Z'
+                properties:
+                  id: { type: integer, example: 2 }
+                  name: { type: string, example: Demo }
+                  email: { type: string, example: demo@demo.com }
+                  email_verified_at: { type: string, example: null }
+                  created_at: { type: string, example: '2020-05-25T06:21:47.000000Z' }
+                  updated_at: { type: string, example: '2020-05-25T06:21:47.000000Z' }
+      tags:
+        - 'Home endpoints'
+      security: []
+  /api/dashboard/comments:
+    get:
+      summary: 'Search the comments by keyword.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    @response 200{\n    \"id\": 1,\n    \"post_id\": 7,\n    \"user_id\": 1,\n    \"content\": \"Update a comment.\",\n}"
+      tags:
+        - 'Home endpoints'
+      security: []
+  /api/dashboard/posts:
+    get:
+      summary: 'Search the posts by keyword.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n    @response 200{\n    \"id\": 1,\n    \"user_id\": 1,\n    \"content\": \"Update a comment.\",\n}"
+      tags:
+        - 'Home endpoints'
+      security: []
   /api/login:
     post:
       summary: 'Handle a login request to the application.'
@@ -236,6 +339,106 @@ paths:
                 - password
                 - password_confirmation
       security: []
+  /api/users.following:
+    get:
+      summary: 'Get the user''s following'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 2
+                  name: Demo
+                  email: demo@demo.com
+                  email_verified_at: null
+                  created_at: '2020-05-25T06:21:47.000000Z'
+                  updated_at: '2020-05-25T06:21:47.000000Z'
+                properties:
+                  id: { type: integer, example: 2 }
+                  name: { type: string, example: Demo }
+                  email: { type: string, example: demo@demo.com }
+                  email_verified_at: { type: string, example: null }
+                  created_at: { type: string, example: '2020-05-25T06:21:47.000000Z' }
+                  updated_at: { type: string, example: '2020-05-25T06:21:47.000000Z' }
+      tags:
+        - 'Auth endpoints'
+      security: []
+  /api/users.followers:
+    get:
+      summary: 'Get the user''s follower'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message: { type: string, example: Unauthenticated. }
+      tags:
+        - 'Auth endpoints'
+      security: []
+  /api/users.follow:
+    post:
+      summary: 'User can follow another user and 1 notification. If has followed will cancal the follow'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        204:
+          description: '204'
+      tags:
+        - 'Auth endpoints'
   '/api/comments/{comment}/likes':
     get:
       summary: 'show amount of comment total like'
@@ -317,7 +520,7 @@ paths:
         in: path
         name: comment
         description: 'The ID of the comment. emxample: 1'
-        example: 1
+        example: 17
         required: true
         schema:
           type: integer
@@ -407,7 +610,7 @@ paths:
                 content:
                   type: string
                   description: 'require the content of the post. Emxample: Update a comment.'
-                  example: non
+                  example: ut
     delete:
       summary: 'delete auth''s comment by himself'
       description: ''
@@ -492,7 +695,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the comment.'
-        example: 2
+        example: 8
         required: true
         schema:
           type: integer
@@ -554,7 +757,7 @@ paths:
                 comment:
                   type: string
                   description: 'the content of the user. emxample: This is a comment'
-                  example: ut
+                  example: at
               required:
                 - comment
     parameters:
@@ -562,7 +765,7 @@ paths:
         in: path
         name: post
         description: 'The ID of the post. emxample: 1'
-        example: 10
+        example: 5
         required: true
         schema:
           type: integer
@@ -686,7 +889,7 @@ paths:
         in: path
         name: post
         description: 'The ID of the post. emxample: 1'
-        example: 20
+        example: 4
         required: true
         schema:
           type: integer
@@ -778,7 +981,7 @@ paths:
                 post:
                   type: string
                   description: 'the content of the user. emxample: This is a post'
-                  example: sit
+                  example: quam
               required:
                 - post
   '/api/posts/{id}':
@@ -837,7 +1040,7 @@ paths:
                 content:
                   type: string
                   description: 'require the content of the post. Emxample: Update a post.'
-                  example: voluptate
+                  example: voluptas
     delete:
       summary: 'delete auth''s post by himself'
       description: ''
@@ -973,7 +1176,7 @@ paths:
         in: path
         name: user
         description: 'The ID of the user. emxample: 1'
-        example: 6
+        example: 15
         required: true
         schema:
           type: integer
@@ -1021,7 +1224,7 @@ paths:
         in: path
         name: user
         description: 'The ID of the user. emxample: 1'
-        example: 8
+        example: 10
         required: true
         schema:
           type: integer
