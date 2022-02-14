@@ -55,7 +55,7 @@ End Point | Description | Method | Auth |
 | [api/posts](http://127.0.0.1:8000/api/posts) | Show All Posts  | GET | No |
 | [api/posts/{post}](http://127.0.0.1:8000/api/posts/1}) | Show Specified Post  | GET | No |
 | [api/posts](http://127.0.0.1:8000/api/posts) | Create Post  | POST | Yes |
-| [api/posts](http://127.0.0.1:8000/api/posts) | Update Post  | PUT | Yes |
+| [api/posts/{post}](http://127.0.0.1:8000/api/posts/1) | Update Post  | PUT | Yes |
 | [api/posts/{post}](http://127.0.0.1:8000/api/posts/1) | Delete Specified Post  | DELETE | Yes |
 | [api/comments](http://127.0.0.1:8000/api/comments) | Get All Comments  | GET | No |
 | [api/comments/{comment}](http://127.0.0.1:8000/api/commenst/1}) | Show Specified Comment  | GET | No |
